@@ -1,0 +1,30 @@
+ 
+    <div fxLayout="column" fxLayoutAlign="space-around center" class="container">
+            <mat-card > 
+              <form [formGroup]="loginForm">
+                <h2>LOGIN</h2>
+                  <div class="form-field">
+                          <mat-form-field appearance="outline">
+                                  <mat-label>Email</mat-label>
+                                  <input matInput placeholder="Placeholder" formControlName="email">
+                          </mat-form-field>
+                  </div>
+      
+                  <div class="form-field">
+                  <mat-form-field appearance="outline">
+                          <mat-label>Password</mat-label>
+                          <input matInput placeholder="Placeholder" formControlName="password">
+                        </mat-form-field>
+                  </div>
+
+                  <button mat-raised-button color="primary" (click) = "onSubmit()">submit</button>
+                  <br><br>
+                  <div>
+                  <a routerLink= '/registration' routerLinkActive = 'active'>Registration</a>/
+                  <a routerLink= '/forgetPassword' routerLinkActive = 'active'>Forget Password</a>
+                 </div>
+               </form>
+               
+              </mat-card>
+              </div>
+          

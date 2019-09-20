@@ -1,0 +1,46 @@
+ 
+    <div fxLayout="column" fxLayoutAlign="space-around center" class="container">
+      <mat-card > 
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <h2>REGISTRATION</h2>
+          <div class="form-field" > 
+            <mat-form-field appearance="outline">
+                    <mat-label>First Name</mat-label>
+                    <input matInput placeholder="Placeholder" formControlName="firstName">
+                  </mat-form-field>
+           </div>  
+             
+           <div class="form-field"> 
+            <mat-form-field appearance="outline">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput placeholder="Placeholder" formControlName="lastName">
+                  </mat-form-field>
+           </div>
+
+            <div class="form-field">
+                    <mat-form-field appearance="outline">
+                            <mat-label>Email</mat-label>
+                            <input matInput placeholder="Placeholder" formControlName="email">
+                    </mat-form-field>
+            </div>
+
+            <div class="form-field">
+            <mat-form-field appearance="outline">
+                    <mat-label>Mobile Number</mat-label>
+                    <input matInput placeholder="Placeholder" formControlName="mobileNumber">
+                  </mat-form-field>
+            </div>
+
+            <div class="form-field">
+            <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput placeholder="Placeholder" formControlName="password">
+                  </mat-form-field>
+            </div>
+
+            <button mat-raised-button color="primary" (click) = "onSubmit()">submit</button>
+         
+         </form>
+        </mat-card>
+        </div>
+    
