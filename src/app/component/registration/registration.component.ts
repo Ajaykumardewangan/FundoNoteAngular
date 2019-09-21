@@ -24,16 +24,15 @@ export class RegistrationComponent implements OnInit {
   }
 
 onSubmit(form: NgForm) {
-  console.log(form);
   if (this.registerForm.invalid) {
     return;
 }
-  this.userService.registration(this.registerForm.value).subscribe( () => {
-    this.router.navigate(['/login']);
+  this.userService.registration(this.registerForm.value).subscribe( (user) => {
+    console.log(user);
+    this.router.navigateByUrl('/login');
 },
-() => {
-    console.log( 'failed to register');
+(error) => {
+    console.log( error);
 });
 }
-
 }

@@ -19,17 +19,17 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  onSubmit(form: NgForm) {
-    console.log(form);
+  onSubmitLogin() {
     if (this.loginForm.invalid) {
+      console.log('inside invalid');
       return;
   }
-    this.userService.login(this.loginForm.value).subscribe( () => {
-      this.router.navigate(['/dashboard']);
+    this.userService.login(this.loginForm.value).subscribe( (token) => {
+      console.log(token);
+      this.router.navigate(['/forgetPassword']);
   },
-  () => {
-      console.log( 'failed to Login');
+  (error) => {
+      console.log(error);
   });
   }
-
 }

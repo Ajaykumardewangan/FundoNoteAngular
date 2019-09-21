@@ -1,7 +1,7 @@
  
     <div fxLayout="column" fxLayoutAlign="space-around center" class="container">
       <mat-card > 
-        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="registerForm">
           <h2>REGISTRATION</h2>
           <div class="form-field" > 
             <mat-form-field appearance="outline">
@@ -39,6 +39,11 @@
             </div>
 
             <button mat-raised-button color="primary" (click) = "onSubmit()">submit</button>
+            <br><br>
+            <div>
+              <a routerLink= '/login' routerLinkActive = 'active'>Login</a>/
+              <a routerLink= '/forgetPassword' routerLinkActive = 'active'>Forget Password</a>
+             </div>
          
          </form>
         </mat-card>

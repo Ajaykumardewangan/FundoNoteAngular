@@ -6,11 +6,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule, MatButtonModule, MatInputModule, MatCardModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { UserService } from './service/user.service';
+import { ResetPasswordComponent } from './component/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponents
+    routingComponents,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     MatCardModule,
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
