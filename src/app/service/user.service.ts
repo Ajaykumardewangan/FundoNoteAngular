@@ -25,8 +25,7 @@ login(user: any): Observable<any> {
 
 forgetPassword(email: string): Observable<any> {
   console.log(email);
-  const  headers = new  HttpHeaders().set('X-email', email);
-  return this.http.post<any>(this.API_URL + 'user/forget_password', {headers} );
+  return this.http.post<any>(this.API_URL + 'user/forget_password', email, this.httpOptions );
 }
 
 resetPassword(user: any): Observable<any> {

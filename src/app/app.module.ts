@@ -7,13 +7,11 @@ import { MatFormFieldModule, MatButtonModule, MatInputModule, MatCardModule } fr
 import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { UserService } from './service/user.service';
-import { ResetPasswordComponent } from './component/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
-    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,
