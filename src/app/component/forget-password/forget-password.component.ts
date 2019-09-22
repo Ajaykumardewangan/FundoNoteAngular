@@ -24,11 +24,12 @@ export class ForgetPasswordComponent implements OnInit {
     if (this.forgetForm.invalid) {
       return;
   }
-    this.userService.forgetPassword(this.forgetForm.value).subscribe( () => {
+    this.userService.forgetPassword(this.forgetForm.value).subscribe( (res) => {
+      console.log(res);
       this.router.navigate(['/login']);
   },
-  () => {
-      console.log( 'failed to Login');
+  (error) => {
+      console.log(error);
   });
 }
 }

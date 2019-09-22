@@ -24,7 +24,8 @@ export class LoginComponent implements OnInit {
       console.log('inside invalid');
       return;
   }
-    this.userService.login(this.loginForm.value).subscribe( (token) => {
+    console.log(this.loginForm.value);
+    this.userService.login(this.loginForm.value).subscribe( token => {
       console.log(token);
       this.router.navigate(['/forgetPassword']);
   },

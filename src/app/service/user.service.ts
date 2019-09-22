@@ -12,6 +12,7 @@ export class UserService {
   private httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
+
   constructor(private http: HttpClient) { }
 
   registration(user: any): Observable<any> {
@@ -19,11 +20,13 @@ export class UserService {
 }
 
 login(user: any): Observable<any> {
-  return this.http.post(this.API_URL + 'user/login', JSON.stringify(user));
+  return this.http.post<any>(this.API_URL + 'user/login', JSON.stringify(user), this.httpOptions);
 }
 
 forgetPassword(email: string): Observable<any> {
-  return this.http.post(this.API_URL + 'user/login', JSON.stringify(email));
+  console.log(email);
+  const  headers = new  HttpHeaders().set('X-email', email);
+  return this.http.post<any>(this.API_URL + 'user/forget_password', {headers} );
 }
 
 resetPassword(user: any): Observable<any> {
