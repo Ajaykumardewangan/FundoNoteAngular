@@ -7,6 +7,7 @@ import { MatFormFieldModule, MatButtonModule, MatInputModule, MatCardModule } fr
 import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { UserService } from './service/user.service';
+import { RouterModule, Routes } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { UserService } from './service/user.service';
     MatInputModule,
     BrowserAnimationsModule,
     MatCardModule,
+    RouterModule,
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

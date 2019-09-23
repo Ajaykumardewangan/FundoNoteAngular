@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/service/user.service';
-import { Router } from '@angular/router';
+import { Router, ParamMap, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
 
 @Component({
@@ -11,20 +11,28 @@ import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
 export class ResetPasswordComponent implements OnInit {
 
   resetForm: FormGroup;
-  constructor(private userService: UserService, private router: Router) { }
+  token: string;
+  constructor(private userService: UserService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.resetForm = new FormGroup({
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
     confirmPassword: new FormControl('', [Validators.required, Validators.minLength(6)])
     });
-  }
+
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.token = params.get('token');
+      console.log(this.token);
+  });
+}
 
   onSubmitReset(form: NgForm) {
+    console.log(form);
     if (this.resetForm.invalid) {
       return;
   }
-    this.userService.resetPassword(this.resetForm.value).subscribe( (user) => {
+    console.log(this.token);
+    this.userService.resetPassword(this.resetForm.value, this.token).subscribe( (user) => {
       console.log(user);
       this.router.navigateByUrl('/login');
   },

@@ -2,7 +2,9 @@
     <div fxLayout="column" fxLayoutAlign="space-around center" class="container">
       <mat-card > 
         <form [formGroup]="registerForm">
+          <div class="title">
           <h2>REGISTRATION</h2>
+         </div>
           <div class="form-field" > 
             <mat-form-field appearance="outline">
                     <mat-label>First Name</mat-label>
@@ -35,16 +37,19 @@
             <mat-form-field appearance="outline">
                     <mat-label>Password</mat-label>
                     <input matInput type="password" placeholder="Enter password" formControlName="password">
-                  </mat-form-field>
+            </mat-form-field>
             </div>
 
+            <div class= "link-div">
+            <div class="link">
+              <a routerLink = '/login' routerLinkActive = 'active'>Login</a>/
+              <a routerLink = '/forgetPassword' routerLinkActive = 'active'>Forget Password</a>
+            </div>
+
+            <div class="button">
             <button mat-raised-button color="primary" (click) = "onSubmit()">submit</button>
-            <br><br>
-            <div>
-              <a routerLink= '/login' routerLinkActive = 'active'>Login</a>/
-              <a routerLink= '/forgetPassword' routerLinkActive = 'active'>Forget Password</a>
-             </div>
-         
+            </div>
+          </div>
          </form>
         </mat-card>
         </div>
