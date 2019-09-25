@@ -1,30 +1,44 @@
- 
-    <div fxLayout="column" fxLayoutAlign="space-around center" class="container">
-            <mat-card > 
-              <form [formGroup]="loginForm">
-                <h2>LOGIN</h2>
-                  <div class="form-field">
-                          <mat-form-field appearance="outline">
-                                  <mat-label>Email</mat-label>
-                                  <input matInput placeholder="Enter email" formControlName="email">
-                          </mat-form-field>
-                  </div>
-      
-                  <div class="form-field">
-                  <mat-form-field appearance="outline">
-                          <mat-label>Password</mat-label>
-                          <input matInput type="password" placeholder="Enter password" formControlName="password">
-                        </mat-form-field>
-                  </div>
 
-                  <button mat-raised-button color="primary" (click) = "onSubmitLogin()">submit</button>
-                  <br><br>
-                  <div>
-                  <a routerLink= '/registration' routerLinkActive = 'active'>Registration</a>/
-                  <a routerLink= '/forgetPassword' routerLinkActive = 'active'>Forget Password</a>
-                 </div>
-               </form>
-               
-              </mat-card>
-              </div>
-          
+<div fxLayout="column" fxLayoutAlign="space-around center" class="container">
+<mat-card > 
+<form [formGroup]="loginForm">
+<h2>LOGIN</h2>
+<div class="form-field">
+        <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Enter email" formControlName="email">
+                <mat-icon matSuffix>email</mat-icon>
+                <mat-error *ngIf="loginForm.get('email').hasError('required')">
+                   Please fill out this field.
+                </mat-error>
+                <mat-error *ngIf="loginForm.get('email').hasError('email')">
+                   invalid email id.
+                 </mat-error>
+        </mat-form-field>
+</div>
+
+<div class="form-field">
+<mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput placeholder="Enter your password" [type]="hide ? 'text' : 'password'" formControlName="password">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="loginForm.get('password').hasError('required')">
+                  Please fill out this field.
+                </mat-error>
+                <mat-error *ngIf="loginForm.get('password').hasError('minLength')">
+                  Password min length must be 6 digit.
+                </mat-error>
+                </mat-form-field>
+</div>
+        <button mat-raised-button color="primary" (click) = "onSubmitLogin()">submit</button>
+<br><br>
+<div>
+        <a routerLink= '/registration' routerLinkActive = 'active'>Registration</a>/
+        <a routerLink= '/forgetPassword' routerLinkActive = 'active'>Forget Password</a>
+</div>
+</form>
+</mat-card>
+</div>
+

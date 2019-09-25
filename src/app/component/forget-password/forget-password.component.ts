@@ -15,7 +15,7 @@ export class ForgetPasswordComponent implements OnInit {
 
   ngOnInit() {
     this.forgetForm = new FormGroup({
-      email: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required, Validators.email]),
       resetPasswordUrl: new FormControl('http://localhost:4200/resetpassword/:')
       });
   }

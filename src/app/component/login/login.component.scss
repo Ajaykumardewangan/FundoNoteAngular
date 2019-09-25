@@ -2,7 +2,7 @@ mat-card {
     display: flex;
     justify-content: center;
     border-radius: 10px; 
-    width: 35%;
+    width: 350px;
     height: auto;
   }
   .container {
@@ -17,6 +17,5 @@ mat-card {
       }
       mat-form-field{
         width: 70%;
-        height: 80px;
       }  
   

@@ -8,6 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { UserService } from './service/user.service';
 import { RouterModule, Routes } from '@angular/router';
+import {MatIconModule} from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { RouterModule, Routes } from '@angular/router';
     MatInputModule,
     BrowserAnimationsModule,
     MatCardModule,
+    MatIconModule
   ],
   exports: [
     MatButtonModule,
@@ -32,6 +35,7 @@ import { RouterModule, Routes } from '@angular/router';
     BrowserAnimationsModule,
     MatCardModule,
     RouterModule,
+    MatIconModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
