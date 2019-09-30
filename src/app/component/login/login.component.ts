@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     console.log(this.loginForm.value);
     this.userService.login(this.loginForm.value).subscribe( token => {
       console.log(token);
-      this.router.navigate(['/forgetPassword']);
+      this.router.navigate(['/dashboard']);
   },
   (error) => {
       console.log(error);

@@ -9,12 +9,16 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { UserService } from './service/user.service';
 import { RouterModule, Routes } from '@angular/router';
 import {MatIconModule} from '@angular/material/icon';
+import { DashboardComponent } from './component/dashboard/dashboard.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,9 @@ import {MatIconModule} from '@angular/material/icon';
     MatInputModule,
     BrowserAnimationsModule,
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    MatToolbarModule,
+    MatSidenavModule
   ],
   exports: [
     MatButtonModule,
