@@ -15,30 +15,71 @@
     border-right: 0px;
     width: 250px;
   }
-  .keep-icon {
-      width: 40px;
-      height: 40px;
+  #keep-icon {
+    margin-top: 5px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
   }
+  #keep-icon1 {
+    margin-top: 5px;
+      width: 30px;
+      height: 30px;
+      margin-left: 10px;
+  }
+  
   .sidenav-icon-div {
-      line-height: 200px;    
+    width: 150px;
+      display: flex;
+      flex-direction: row;  
+  }
+  #fundo-text {
+    margin-top: 5px;
+    padding-left: 30px;
   }
    
   .search-div {
-      display: flex;
-      flex-direction: row;
-      margin-left: 150px;
-    width: 650px;  
+      margin-left: 7%; 
 }
 
   .form-control {
-    width: 315px;
+    width: 90%;
     height: 25px;
-      border: none;
+    border: none;
+    font-size: 16px;
+    margin-top: -5px; 
   }
+
+  .search-button,#search-button {
+    margin-top: -11px;
+  }
+
+  input:focus,select:focus {
+    outline: none;
+  }  
+
   .search-bar {
-    width: 450px;
-    height: 35px;
-    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    width: 52vw;
+    height: 15px;
     border-radius: 5px;  
   }
+  .profile-button {
+    margin-left: auto;
+  }
+
+  .refresh-stream-setting {
+    display: flex;
+    flex-direction: row;
+    padding: 0vw;
+  }
+  .left-header {
+    padding-right: 15px;
+    margin-top: 20px;
+  }
   
+  
+ 
+
+

@@ -2,39 +2,54 @@
 <header>
 <mat-toolbar>
 <div class = "sidenav-icon-div">
-<button  type="button" mat-button (click)="drawer.toggle()">
-<mat-icon>dehaze</mat-icon>
-</button>
-<a routerLink= '#' routerLinkActive = 'active'>
-<img class="keep-icon" mat-card-image src="/assets/icons/google_keep.png"/>
-<span>Fundo</span>
-</a>
+     <button mat-icon-button (click)="drawer.toggle()">
+         <mat-icon>dehaze</mat-icon>
+     </button>
+
+      <img id="keep-icon1" mat-card-image src="/assets/icons/google_keep.png"/>
+
+      <div id="fundo-text">Fundo</div>
 </div>
+
 <div class="search-div">
-    <div class="search-bar">
-            <button  type="button" mat-button>
+    <mat-card class="search-bar">
+            <button  id="search-button" mat-icon-button>
                     <mat-icon matSuffix>search</mat-icon>
             </button>
             <input class="form-control" type="text" name="search" autocomplete="off" placeholder="search ">
-            <button  type="button" mat-button>
+            <button  class="search-button" mat-icon-button>
                     <mat-icon matSuffix>clear</mat-icon>
             </button>
-    </div>
-         <div>
-            <button  type="button" mat-button>
-                    <mat-icon matSuffix>refresh</mat-icon>
-            </button> 
-        </div>
-        <div>
-                <button  type="button" mat-button>
-                        <mat-icon matSuffix>view_stream</mat-icon>
-                </button> 
-        </div>
-        <div>
-                <button  type="button" mat-button>
-                        <mat-icon matSuffix>settings_applications</mat-icon>
-                </button> 
-        </div>
+    </mat-card>         
+</div>
+  <div class="refresh-stream-setting">
+                <div class = "refresh-button">
+                                <button  mat-icon-button>
+                                        <mat-icon matSuffix>refresh</mat-icon>
+                                </button> 
+                            </div>
+                            <div>
+                                    <button  mat-icon-button>
+                                            <mat-icon matSuffix>view_stream</mat-icon>
+                                    </button> 
+                            </div>
+                            <div>
+                                    <button  mat-icon-button>
+                                            <mat-icon matSuffix>settings_applications</mat-icon>
+                                    </button> 
+                            </div>
+                            <div>
+                                    <button  mat-icon-button>
+                                            <mat-icon matSuffix>view_comfy</mat-icon>
+                                    </button> 
+                                </div>
+
+  </div>
+<div class = "profile-button">
+        <button mat-icon-button>
+                <img id="keep-icon" mat-card-image src="/assets/images/ajay.jpeg"/>
+        </button> 
+
 </div>
 </mat-toolbar>
 </header>
