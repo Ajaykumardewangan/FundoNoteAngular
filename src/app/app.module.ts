@@ -12,6 +12,8 @@ import {MatIconModule} from '@angular/material/icon';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { StorageServiceModule} from 'angular-webstorage-service';
+import {MatDividerModule} from '@angular/material/divider';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     MatCardModule,
     MatIconModule,
     MatToolbarModule,
-    MatSidenavModule
+    MatSidenavModule,
+    StorageServiceModule,
+    MatDividerModule
   ],
   exports: [
     MatButtonModule,

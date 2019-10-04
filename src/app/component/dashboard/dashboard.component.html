@@ -1,66 +1,96 @@
 <div>
-<header>
-<mat-toolbar>
-<div class = "sidenav-icon-div">
-     <button mat-icon-button (click)="drawer.toggle()">
-         <mat-icon>dehaze</mat-icon>
-     </button>
+        <header>
+                <mat-toolbar>
+                        <div class="sidenav-icon-div">
+                                <button mat-icon-button (click)="drawer.toggle()">
+                                        <mat-icon>dehaze</mat-icon>
+                                </button>
 
-      <img id="keep-icon1" mat-card-image src="/assets/icons/google_keep.png"/>
+                                <img id="keep-icon1" mat-card-image src="/assets/icons/google_keep.png" />
 
-      <div id="fundo-text">Fundo</div>
-</div>
+                                <div id="fundo-text">Fundo</div>
+                        </div>
 
-<div class="search-div">
-    <mat-card class="search-bar">
-            <button  id="search-button" mat-icon-button>
-                    <mat-icon matSuffix>search</mat-icon>
-            </button>
-            <input class="form-control" type="text" name="search" autocomplete="off" placeholder="search ">
-            <button  class="search-button" mat-icon-button>
-                    <mat-icon matSuffix>clear</mat-icon>
-            </button>
-    </mat-card>         
-</div>
-  <div class="refresh-stream-setting">
-                <div class = "refresh-button">
-                                <button  mat-icon-button>
-                                        <mat-icon matSuffix>refresh</mat-icon>
-                                </button> 
-                            </div>
-                            <div>
-                                    <button  mat-icon-button>
-                                            <mat-icon matSuffix>view_stream</mat-icon>
-                                    </button> 
-                            </div>
-                            <div>
-                                    <button  mat-icon-button>
-                                            <mat-icon matSuffix>settings_applications</mat-icon>
-                                    </button> 
-                            </div>
-                            <div>
-                                    <button  mat-icon-button>
-                                            <mat-icon matSuffix>view_comfy</mat-icon>
-                                    </button> 
+                        <div class="search-div">
+                                <mat-card class="search-bar">
+                                        <button id="search-button" mat-icon-button>
+                                                <mat-icon matSuffix>search</mat-icon>
+                                        </button>
+                                        <input class="form-control" type="text" name="search" autocomplete="off"
+                                                placeholder="search ">
+                                        <button class="search-button" mat-icon-button>
+                                                <mat-icon matSuffix>clear</mat-icon>
+                                        </button>
+                                </mat-card>
+                        </div>
+                        <div class="refresh-stream-setting">
+                                <div class="refresh-button">
+                                        <button mat-icon-button>
+                                                <mat-icon matSuffix>refresh</mat-icon>
+                                        </button>
+                                </div>
+                                <div>
+                                        <button mat-icon-button>
+                                                <mat-icon matSuffix>view_stream</mat-icon>
+                                        </button>
+                                </div>
+                                <div>
+                                        <button mat-icon-button>
+                                                <mat-icon matSuffix>settings_applications</mat-icon>
+                                        </button>
+                                </div>
+                                <div>
+                                        <button mat-icon-button>
+                                                <mat-icon matSuffix>view_comfy</mat-icon>
+                                        </button>
                                 </div>
 
-  </div>
-<div class = "profile-button">
-        <button mat-icon-button>
-                <img id="keep-icon" mat-card-image src="/assets/images/ajay.jpeg"/>
-        </button> 
+                        </div>
+                        <div class="profile-button">
+                                <button mat-icon-button>
+                                        <img id="keep-icon" mat-card-image src="/assets/images/ajay.jpeg" />
+                                </button>
 
-</div>
-</mat-toolbar>
-</header>
-<div>
-<mat-drawer-container class="side-nav-container" autosize>
-    <mat-drawer #drawer class="sidenav-bar" mode="side">
-        <p>Auto-resizing sidenav</p>
-    </mat-drawer> 
-    <div class="view-content">
-        <p>this is view content</p>
-    </div> 
-</mat-drawer-container>
-</div>
+                        </div>
+                </mat-toolbar>
+        </header>
+        <div>
+                <mat-drawer-container class="side-nav-container" autosize>
+                        <mat-drawer #drawer class="sidenav-bar" mode="side">
+                                <div>
+                                        <div>
+                                             <div>      
+                                              <button class="sidebar-buttons" mat-stroked-button>
+                                                <mat-icon class="maticons">emoji_objects</mat-icon><span class="sidenavtext">Notes</span>
+                                               </button>
+                                            </div>
+                                            <div>
+                                              <button  class="sidebar-buttons" mat-stroked-button>Reminders</button>
+                                            </div>
+                                        </div>
+                                        <mat-divider></mat-divider>
+                                        <div>
+                                         <label>Label</label>
+                                        <div fxLayout="column" *ngFor="let label of Label">
+                                                <button class="sidebar-buttons" mat-stroked-button>
+                                                     {{ label.labelName }}
+                                                </button> 
+                                        </div>
+                                       </div>
+                                        <mat-divider></mat-divider> 
+                                        <div>
+                                            <div>
+                                                <button class="sidebar-buttons" mat-stroked-button>Archive</button>
+                                            </div>
+                                            <div>
+                                                <button  class="sidebar-buttons" mat-stroked-button>Trash</button>
+                                            </div>
+                                        </div>
+                                </div>
+                        </mat-drawer>
+                        <div class="view-content">
+                                <p>this is view content</p>
+                        </div>
+                </mat-drawer-container>
+        </div>
 </div>

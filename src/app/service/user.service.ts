@@ -31,4 +31,8 @@ export class UserService {
   resetPassword(user: any, token: string): Observable<any> {
   return this.http.post<any>(this.API_URL + 'user/reset_password', user, { headers: new HttpHeaders().set('token', token)});
   }
+
+  getLabels(token: string): Observable<any> {
+    return this.http.get<any>(this.API_URL + 'user/label/get_labels', { headers: new HttpHeaders().set('token', token)});
+    }
 }

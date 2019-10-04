@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/service/user.service';
 import { FormBuilder, FormGroup, Validators, FormControl, NgForm } from '@angular/forms';
+import { LOCAL_STORAGE, WebStorageService } from 'angular-webstorage-service';
+import { UserIdentifier } from 'src/app/models/user-identifier';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +13,12 @@ import { FormBuilder, FormGroup, Validators, FormControl, NgForm } from '@angula
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
-  constructor(private userService: UserService, private router: Router ) { }
+  userIdentitiy: UserIdentifier;
+  constructor(
+     private userService: UserService,
+     private router: Router,
+     @Inject(LOCAL_STORAGE) private storage: WebStorageService ) { }
+
   ngOnInit() {
     this.loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -27,6 +34,9 @@ export class LoginComponent implements OnInit {
     console.log(this.loginForm.value);
     this.userService.login(this.loginForm.value).subscribe( token => {
       console.log(token);
+      this.userIdentitiy = token;
+      console.log(this.userIdentitiy.msg);
+      this.storage.set('token', this.userIdentitiy.msg);
       this.router.navigate(['/dashboard']);
   },
   (error) => {

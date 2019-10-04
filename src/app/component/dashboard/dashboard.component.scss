@@ -11,7 +11,6 @@
   }
   
   .sidenav-bar {
-    padding: 20px;
     border-right: 0px;
     width: 250px;
   }
@@ -72,13 +71,33 @@
   .refresh-stream-setting {
     display: flex;
     flex-direction: row;
-    padding: 0vw;
+    margin-left: 4vw;
   }
   .left-header {
     padding-right: 15px;
     margin-top: 20px;
   }
-  
+  .sidebar-buttons {
+    width: 200px;
+    height: 50px;
+    border: none;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    text-align: left;
+    
+  }
+
+  .sidebar-buttons:focus {
+    background-color: burlywood;
+  }
+  mat-drawer-container {
+    width: 100%;
+  }
+
+  .sidenavtext {
+    padding-left: 50px;
+  } 
+
   
  
 
