@@ -14,6 +14,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { StorageServiceModule} from 'angular-webstorage-service';
 import {MatDividerModule} from '@angular/material/divider';
+import { NotesComponent } from './component/notes/notes.component';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 @NgModule({
@@ -21,6 +23,7 @@ import {MatDividerModule} from '@angular/material/divider';
     AppComponent,
     routingComponents,
     DashboardComponent,
+    NotesComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ import {MatDividerModule} from '@angular/material/divider';
     MatToolbarModule,
     MatSidenavModule,
     StorageServiceModule,
-    MatDividerModule
+    MatDividerModule,
+    MatGridListModule
   ],
   exports: [
     MatButtonModule,

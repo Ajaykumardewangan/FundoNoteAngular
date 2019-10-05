@@ -61,35 +61,49 @@
                                         <div>
                                              <div>      
                                               <button class="sidebar-buttons" mat-stroked-button>
-                                                <mat-icon class="maticons">emoji_objects</mat-icon><span class="sidenavtext">Notes</span>
+                                                <mat-icon class="maticons"><img src="/assets/icons/emoji_objects-24px.svg"></mat-icon><span class="sidenavtext">Notes</span>
                                                </button>
                                             </div>
                                             <div>
-                                              <button  class="sidebar-buttons" mat-stroked-button>Reminders</button>
+                                              <button  class="sidebar-buttons" mat-stroked-button>
+                                                        <mat-icon class="maticons">notifications_none</mat-icon><span class="sidenavtext">Reminder</span>
+                                              </button>
                                             </div>
                                         </div>
                                         <mat-divider></mat-divider>
                                         <div>
-                                         <label>Label</label>
+                                         <div class="label-div">       
+                                         <label>LABELS</label>
+                                        </div>
                                         <div fxLayout="column" *ngFor="let label of Label">
                                                 <button class="sidebar-buttons" mat-stroked-button>
-                                                     {{ label.labelName }}
+                                                   <mat-icon class="maticons"><img src="/assets/icons/label-24px.svg"></mat-icon><span class="sidenavtext">{{ label.labelName }}</span>
+                                                </button> 
+                                        </div>
+                                        <div>
+                                               <button  class="sidebar-buttons" mat-stroked-button>
+                                                   <mat-icon class="maticons"><img src="/assets/icons/edit.svg"></mat-icon><span class="sidenavtext">Edit labels</span>
                                                 </button> 
                                         </div>
                                        </div>
                                         <mat-divider></mat-divider> 
                                         <div>
                                             <div>
-                                                <button class="sidebar-buttons" mat-stroked-button>Archive</button>
+                                                <button class="sidebar-buttons" mat-stroked-button>
+                                                    <mat-icon class="maticons"><img src="/assets/icons/archive-24px.svg"></mat-icon><span class="sidenavtext">Archive</span>
+                                                </button>
                                             </div>
                                             <div>
-                                                <button  class="sidebar-buttons" mat-stroked-button>Trash</button>
+                                                <button  class="sidebar-buttons" mat-stroked-button>
+                                                    <mat-icon class="maticons">delete_outline</mat-icon><span class="sidenavtext">Trash</span>
+                                                </button>
                                             </div>
                                         </div>
                                 </div>
                         </mat-drawer>
                         <div class="view-content">
-                                <p>this is view content</p>
+                                <!-- <p>this is view content</p> -->
+                                <app-notes></app-notes>
                         </div>
                 </mat-drawer-container>
         </div>
