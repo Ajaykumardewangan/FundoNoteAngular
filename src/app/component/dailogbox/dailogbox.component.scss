@@ -1,0 +1,33 @@
+// .note-mat-card {
+//     display: flex;
+//     flex-direction: column;
+//     width: 100%;
+//     height: auto;
+//     margin: 10px;
+// } 
+// textarea:focus,select:focus {
+//   outline: none;
+// }
+// textarea{
+//   border:none;
+// }
+.notes-div {
+    position: relative;
+    right: 0px;
+    left: 0px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.note-mat-card {
+    width: 104%;
+    height: auto;
+    margin: -24px -33px -24px -33px;
+} 
+textarea:focus,select:focus {
+  outline: none;
+} 
+textarea{
+    width: 100%;
+  border:none;
+}

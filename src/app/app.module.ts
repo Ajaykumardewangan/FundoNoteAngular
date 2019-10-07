@@ -16,7 +16,10 @@ import { StorageServiceModule} from 'angular-webstorage-service';
 import {MatDividerModule} from '@angular/material/divider';
 import { NotesComponent } from './component/notes/notes.component';
 import {MatGridListModule} from '@angular/material/grid-list';
-
+import { CreateNoteComponent } from './component/create-note/create-note.component';
+import {FormsModule} from '@angular/forms';
+import { DailogboxComponent } from './component/dailogbox/dailogbox.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     routingComponents,
     DashboardComponent,
     NotesComponent,
+    CreateNoteComponent,
+    DailogboxComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +45,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatSidenavModule,
     StorageServiceModule,
     MatDividerModule,
-    MatGridListModule
+    MatGridListModule,
+    FormsModule,
+    MatDialogModule
   ],
   exports: [
     MatButtonModule,
@@ -51,6 +58,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
     RouterModule,
     MatIconModule
   ],
+  entryComponents: [
+    DailogboxComponent],
+
   providers: [UserService],
   bootstrap: [AppComponent]
 })

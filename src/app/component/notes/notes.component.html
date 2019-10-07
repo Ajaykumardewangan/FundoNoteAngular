@@ -1,21 +1,25 @@
 <div>
-        <div class="search-div">
-                <mat-card class="search-bar">
-                        <input class="form-control" type="text" name="search" autocomplete="off"
-                                placeholder="Take a note...">
-                        <button class="search-button" mat-icon-button>
-                                <mat-icon matSuffix><img src="/assets/icons/check_box.svg"></mat-icon>
-                        </button>
-                </mat-card>
-        </div>
         <div>
-        <mat-grid-list cols="3" rowHeight="2:1">
-                <mat-grid-tile *ngFor="let note of notes">
-                 <mat-card class="note-mat-card"  [style.background]="note.color">
-                  {{note.noteTitle}}
-                  {{note.description}}
+                 <div class="notes-div">   
+                 <mat-card   class="note-mat-card" *ngFor="let note of notes"  [ngStyle]="{'background-color':note.color}" (click)="openDialog(note)">
+                                <textarea matInput
+                                cdkTextareaAutosize
+                                class="title-textarea"
+                                [(ngModel)]="note.noteTitle"
+                                [ngStyle]="{'background-color':note.color}"
+                                disabled
+                                ></textarea>
+                        
+                                        <textarea 
+                                                [(ngModel)]="note.description"
+                                                cdkTextareaAutosize
+                                                 #autosize="cdkTextareaAutosize"
+                                                 cdkAutosizeMinRows="1"
+                                                 cdkAutosizeMaxRows="auto"
+                                                 [ngStyle]="{'background-color':note.color}"
+                                                 disabled></textarea>        
+                                 
                 </mat-card>
-                </mat-grid-tile>
-        </mat-grid-list>
+                </div>    
         </div>
 </div>
