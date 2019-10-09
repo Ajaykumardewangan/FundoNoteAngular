@@ -1,0 +1,21 @@
+<div>
+        <div>
+                <div class="notes-div">
+                        <mat-card class="note-mat-card" *ngFor="let note of notes"
+                                [ngStyle]="{'background-color':note.color}">
+                                <div (click)="openDialog(note)">
+                                        <!-- <textarea matInput cdkTextareaAutosize class="title-textarea"
+                                                [(ngModel)]="note.noteTitle" [ngStyle]="{'background-color':note.color}"
+                                                disabled></textarea> -->
+                                                <input class="title-text" type="text" [(ngModel)]="note.noteTitle" [ngStyle]="{'background-color':note.color}" disabled/>
+
+                                        <textarea (click)="openDialog(note)" [(ngModel)]="note.description"
+                                                cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+                                                cdkAutosizeMinRows="1" cdkAutosizeMaxRows="auto"
+                                                [ngStyle]="{'background-color':note.color}" disabled></textarea>
+
+                                </div>
+                        </mat-card>
+                </div>
+        </div>
+</div>

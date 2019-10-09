@@ -21,13 +21,17 @@
 }
 .note-mat-card {
     width: 104%;
-    height: auto;
+    height: fit-content;
     margin: -24px -33px -24px -33px;
 } 
-textarea:focus,select:focus {
+input,textarea:focus,select:focus {
   outline: none;
 } 
 textarea{
     width: 100%;
   border:none;
 }
+.title-text {
+  border:none;
+ width: 100%;
+ }

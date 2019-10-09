@@ -20,6 +20,7 @@ import { CreateNoteComponent } from './component/create-note/create-note.compone
 import {FormsModule} from '@angular/forms';
 import { DailogboxComponent } from './component/dailogbox/dailogbox.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { DisplayNotesComponent } from './component/display-notes/display-notes.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     NotesComponent,
     CreateNoteComponent,
     DailogboxComponent,
+    DisplayNotesComponent,
   ],
   imports: [
     BrowserModule,

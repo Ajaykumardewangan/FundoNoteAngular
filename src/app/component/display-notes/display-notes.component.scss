@@ -1,0 +1,25 @@
+.notes-div {
+    margin-left: 15%;
+    margin-right: 5%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 80%;
+}
+.note-mat-card {
+    width: 25%;
+    height: auto;
+    margin: 10px;
+} 
+input:focus,select:focus {
+  outline: none;
+} 
+textarea{
+  width: 100%;
+  border:none;
+}
+
+.title-text {
+ border:none;
+width: 100%;
+}

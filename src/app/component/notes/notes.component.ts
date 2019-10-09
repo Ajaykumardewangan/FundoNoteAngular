@@ -18,26 +18,13 @@ export class NotesComponent implements OnInit {
     public dialog: MatDialog
   ) { }
 
-    ngOnInit() {
-    this.noteService.getNotes(this.storage.get('token')).subscribe( notes => {
+  ngOnInit() {
+    this.noteService.getNotes(this.storage.get('token')).subscribe(notes => {
       this.notes = notes;
       console.log(notes);
-  },
-  (error) => {
-      console.log(error);
-  });
+    },
+      (error) => {
+        console.log(error);
+      });
   }
-
-  openDialog(note: any): void {
-    console.log(note);
-    const dialogRef = this.dialog.open(DailogboxComponent, {
-      width: '450px',
-      height: 'auto',
-      data: note
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
-}
 }
