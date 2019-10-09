@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Inject } from '@angular/core';
+import { Component, OnInit, Input, Inject, Output, EventEmitter } from '@angular/core';
 import { DailogboxComponent } from '../dailogbox/dailogbox.component';
 import { NotesService } from 'src/app/service/notes.service';
 import { LOCAL_STORAGE, WebStorageService } from 'angular-webstorage-service';
@@ -12,6 +12,8 @@ import { MatDialog } from '@angular/material';
 export class DisplayNotesComponent implements OnInit {
 
   @Input() notes: any;
+  @Output() noteEvent = new EventEmitter<any>();
+
   constructor(
     private noteService: NotesService,
     @Inject(LOCAL_STORAGE) private storage: WebStorageService,
@@ -22,16 +24,13 @@ export class DisplayNotesComponent implements OnInit {
   }
 
   openDialog(note: any): void {
-    console.log(note);
     const dialogRef = this.dialog.open(DailogboxComponent, {
       width: '450px',
       height: 'auto',
       data: note
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
+    
   }
 
 }

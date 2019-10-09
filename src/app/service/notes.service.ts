@@ -18,4 +18,9 @@ export class NotesService {
   getNotes(token: string): Observable<any> {
     return this.http.get<any>(this.API_URL + 'user/notes/get_notes', { headers: new HttpHeaders().set('token', token)});
     }
+
+    updateNote(url: any, note: any, token: string): Observable<any> {
+      // tslint:disable-next-line: max-line-length
+      return this.http.put<any>(this.API_URL + url, note, { headers: new HttpHeaders().set('token', token)});
+      }
 }

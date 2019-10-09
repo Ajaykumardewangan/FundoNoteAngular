@@ -1,17 +1,7 @@
 <div>
 <div class="notes-div">   
         <mat-card class="note-mat-card" [ngStyle]="{'background-color':note.color}">
-                       <!-- <textarea matInput
-                             cdkTextareaAutosize
-                             class="title-textarea"
-                             [(ngModel)]="note.noteTitle"
-                             [ngStyle]="{'background-color':note.color}">
-                        </textarea> -->
                         <input class="title-text" type="text" [(ngModel)]="note.noteTitle" [ngStyle]="{'background-color':note.color}"/>
-                        <!-- <button mat-icon-button>
-                                <mat-icon matSuffix><img src="/assets/images/pin.png"></mat-icon>
-                        </button> -->
-                         
                         <textarea  
                              [(ngModel)]="note.description" 
                              cdkTextareaAutosize
@@ -20,6 +10,11 @@
                              cdkAutosizeMaxRows="auto"
                              [ngStyle]="{'background-color':note.color}">
                         </textarea>
+                        <div>
+                                <button mat-button (click)="closeDialog()">
+                                        Close
+                                </button>
+                        </div>
        </mat-card>
        </div>
     </div>
