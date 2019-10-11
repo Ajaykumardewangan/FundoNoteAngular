@@ -1,0 +1,62 @@
+<div  class="maindiv">
+    <div class="toolicon">
+     <!-- (click)="reminder()" -->
+    <button mat-icon-button >
+    <img id="keep-icon1" mat-card-image src="/assets/icons/notifications_paused-24px.svg" />
+    </button>
+    </div>
+    
+    <div class="toolicon">
+     <button mat-icon-button>
+    <img id="keep-icon1" mat-card-image src="/assets/icons/person_add-24px.svg" />
+    </button>
+    </div>
+
+    <div class="toolicon">
+     <!-- (click)="changeColor()" -->
+    <button mat-icon-button>   
+    <img id="keep-icon1" mat-card-image src="/assets/icons/color_lens-24px.svg" />
+    </button>
+    </div>
+    
+    <div class="toolicon">
+            <!-- (click)="#" -->
+    <button mat-icon-button>
+    <img id="keep-icon1" mat-card-image src="/assets/icons/insert_photo-24px.svg" />
+    </button>
+    </div>
+       
+     <div class="toolicon">
+     <button mat-icon-button (click)="archive(note)">     
+    <img id="keep-icon1" mat-card-image src="/assets/icons/archive-24px.svg" />
+    </button>
+    </div>
+         
+<div class="toolicon">
+    <button class="menuicon"  mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+         <mat-icon>more_vert</mat-icon>
+         </button>
+         <mat-menu #menu="matMenu">
+                <!-- (click)="deleteNote()" -->
+         <button mat-menu-item >
+         <span>Delete note</span>
+         </button>
+
+         <button mat-menu-item >
+         <span>Change labels</span>
+         </button>
+
+         <button mat-menu-item >
+         <span>Add drawing</span>
+         </button>
+
+         <button mat-menu-item >
+         <span>Make a copy</span>
+         </button>
+
+         <button mat-menu-item >
+         <span>Copy to Google Docs</span>
+         </button>               
+   </mat-menu>
+</div>
+</div>

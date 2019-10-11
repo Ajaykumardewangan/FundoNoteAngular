@@ -14,7 +14,7 @@
 input:focus,select:focus {
   outline: none;
 } 
-textarea{
+textarea {
   width: 100%;
   border:none;
 }
@@ -22,4 +22,7 @@ textarea{
 .title-text {
  border:none;
 width: 100%;
+}
+.note-toolbar {
+  width:100%;
 }

@@ -22,6 +22,8 @@ import { DailogboxComponent } from './component/dailogbox/dailogbox.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DisplayNotesComponent } from './component/display-notes/display-notes.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { ToolbarComponent } from './component/toolbar/toolbar.component';
+import { MatMenuModule} from '@angular/material/menu';
 
 
 @NgModule({
@@ -33,6 +35,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     CreateNoteComponent,
     DailogboxComponent,
     DisplayNotesComponent,
+    ToolbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatGridListModule,
     FormsModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatMenuModule
   ],
   exports: [
     MatButtonModule,

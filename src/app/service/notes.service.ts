@@ -13,14 +13,20 @@ export class NotesService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
+
   constructor(private http: HttpClient) { }
 
   getNotes(token: string): Observable<any> {
-    return this.http.get<any>(this.API_URL + 'user/notes/get_notes', { headers: new HttpHeaders().set('token', token)});
-    }
+    return this.http.get<any>(this.API_URL + 'user/notes/get_notes', { headers: new HttpHeaders().set('token', token) });
+  }
 
-    updateNote(url: any, note: any, token: string): Observable<any> {
-      // tslint:disable-next-line: max-line-length
-      return this.http.put<any>(this.API_URL + url, note, { headers: new HttpHeaders().set('token', token)});
-      }
+  updateNote(url: any, note: any, token: string): Observable<any> {
+    // tslint:disable-next-line: max-line-length
+    return this.http.put<any>(this.API_URL + url, note, { headers: new HttpHeaders().set('token', token) });
+  }
+
+  archive(url: any): Observable<any> {
+    console.log('inside archive');
+    return this.http.put(this.API_URL + url, null, { headers: new HttpHeaders().set('token', localStorage.getItem('token')) });
+  }
 }

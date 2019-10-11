@@ -23,11 +23,11 @@ export class DashboardComponent implements OnInit {
     private userService: UserService,
     private labelService: LabelsService,
     private noteService: NotesService,
-    private router: Router,
-    @Inject(LOCAL_STORAGE) private storage: WebStorageService) {
+    private router: Router
+    ) {
    }
   ngOnInit() {
-    this.labelService.getLabels(this.storage.get('token')).subscribe( labels => {
+    this.labelService.getLabels(localStorage.getItem('token')).subscribe( labels => {
       this.Label = labels;
       console.log(labels);
   },

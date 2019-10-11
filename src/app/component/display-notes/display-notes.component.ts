@@ -29,8 +29,5 @@ export class DisplayNotesComponent implements OnInit {
       height: 'auto',
       data: note
     });
-
-    
   }
-
 }

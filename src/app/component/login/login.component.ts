@@ -32,11 +32,10 @@ export class LoginComponent implements OnInit {
       return;
   }
     console.log(this.loginForm.value);
-    this.userService.login(this.loginForm.value).subscribe( token => {
-      console.log(token);
-      this.userIdentitiy = token;
-      console.log(this.userIdentitiy.msg);
-      this.storage.set('token', this.userIdentitiy.msg);
+    this.userService.login(this.loginForm.value).subscribe( data => {
+      console.log(data);
+      console.log(data.msg);
+      localStorage.setItem('token', data.msg);
       this.router.navigate(['/dashboard']);
   },
   (error) => {

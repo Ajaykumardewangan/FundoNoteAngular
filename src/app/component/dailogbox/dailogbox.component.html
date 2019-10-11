@@ -11,6 +11,10 @@
                              [ngStyle]="{'background-color':note.color}">
                         </textarea>
                         <div>
+                                <div>
+                                        <p>{{note.id}}</p>
+                                        <app-toolbar [note]='note'></app-toolbar>
+                                </div>
                                 <button mat-button (click)="closeDialog()">
                                         Close
                                 </button>
