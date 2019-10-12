@@ -10,6 +10,9 @@ import { WebStorageService, LOCAL_STORAGE } from 'angular-webstorage-service';
 export class ToolbarComponent implements OnInit {
 
   @Input() note: any;
+
+   colors: string[] =  ['#ffe6e6', '#e5ffe5', '#A9A9A9', '#B0C4DE', '#DAA520', '#FFFFFF', '#FFF8DC', '#FFA07A', '#FAFAD2',
+   '#F5F5F5', '#FA8072', '#FFD700', '	#FF4500'];
   constructor(
     private noteService: NotesService,
     @Inject(LOCAL_STORAGE) private storage: WebStorageService) { }

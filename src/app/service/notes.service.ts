@@ -16,6 +16,11 @@ export class NotesService {
 
   constructor(private http: HttpClient) { }
 
+  createNote(note: any): Observable<any> {
+    console.log(localStorage.getItem('token'));
+    return this.http.post(this.API_URL + 'user/notes/create_note' , note,
+        { headers: new HttpHeaders().set('token', localStorage.getItem('token')) });
+  }
   getNotes(token: string): Observable<any> {
     return this.http.get<any>(this.API_URL + 'user/notes/get_notes', { headers: new HttpHeaders().set('token', token) });
   }

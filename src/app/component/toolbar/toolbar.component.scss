@@ -1,16 +1,19 @@
 .maindiv{
     display: flex;
     flex-direction: row;
+    margin-left: -20px;;
 }
 .toolicon{
-    padding: 5px;
+    padding: 2%;
 }
 .menuicon{
     border: none;
-    background:white;
     outline: none;
+    margin-top: -8px;
 }
-.keep-icon1 {
-    width: 10px;
-    height: 10px;
+#keep-icon1 {
+    margin-top: 0px;
+    opacity: 0.6;
+    width: 50%;
+    height: 50%;
 }

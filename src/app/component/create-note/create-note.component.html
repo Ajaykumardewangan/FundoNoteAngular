@@ -1,4 +1,4 @@
-<div class="search-div">
+<!-- <div class="search-div">
     <mat-card class="search-bar">
             <input class="form-control" type="text" name="search" autocomplete="off"
                     placeholder="Take a note...">
@@ -6,4 +6,46 @@
                     <mat-icon matSuffix><img src="/assets/icons/check_box.svg"></mat-icon>
             </button>
     </mat-card>
+</div> -->
+
+<div class="search-div">
+        <mat-card *ngIf="!popup" class="search-bar" (click)="onClickNote()">
+                <input class="form-control" type="text" name="search" autocomplete="off" placeholder="Take a note...">
+                <button class="search-button" mat-icon-button>
+                        <mat-icon matSuffix><img src="/assets/icons/check_box.svg"></mat-icon>
+                </button>
+        </mat-card>
+        <div *ngIf="popup">
+                <div class="flex-container">
+                        <div>
+                                <mat-card class="matcard-box">
+                                        <form [formGroup]="noteForm">
+                                        <mat-card-header>
+                                                <mat-card-title style="display: flex;">
+                                                        <input class="form-control" type="text" 
+                                                                style="width:35vw;margin-left:-15px; height:20px; border: none;outline: none;"
+                                                                placeholder="Title" formControlName="noteTitle" >
+                                                        <button class="search-button" mat-icon-button
+                                                                style="margin-top: -9px;">
+                                                                <mat-icon matSuffix><img
+                                                                                src="/assets/icons/check_box.svg">
+                                                                </mat-icon>
+                                                        </button>
+                                                </mat-card-title>
+                                        </mat-card-header>
+                                        <mat-card-content>
+                                                <textarea matInput style="width:350px;border: none;outline: none;"
+                                                        cdkTextareaAutosize placeholder="Take a note..." 
+                                                        formControlName="description"
+                                                        cdkAutosizeMaxRows="25"></textarea>
+                                        </mat-card-content>
+                                        <button (click)="onReturn()">close</button>
+                                </form>
+                                </mat-card>
+                        </div>
+                </div>
+                
+        </div>
 </div>
+
+

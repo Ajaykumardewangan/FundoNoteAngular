@@ -22,3 +22,14 @@ textarea{
   border:none;
  width: 100%;
  }
+ .note-toolbar {
+   width: 60%;
+ }
+ .dailogbox-toolbar {
+   position: relative;
+   bottom: -10%;
+   display: flex;
+ }
+ .closebutton {
+   margin-left: auto;
+ }
