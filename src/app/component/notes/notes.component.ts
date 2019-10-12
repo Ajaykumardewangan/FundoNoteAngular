@@ -25,8 +25,4 @@ export class NotesComponent implements OnInit {
         console.log(error);
       });
   }
-  reciveMessage($event: any) {
-    console.log('reched inside reciveMessage() method');
-    console.log($event);
-  }
 }

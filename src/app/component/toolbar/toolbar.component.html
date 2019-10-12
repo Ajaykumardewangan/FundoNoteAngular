@@ -8,7 +8,7 @@
     
     <div class="toolicon">
      <button mat-icon-button>
-    <img id="keep-icon1" mat-card-image src="/assets/icons/person_add-24px.svg" />
+    <img id="keep-icon1" mat-card-image src="/assets/icons/person_add-24px.svg"/>
     </button>
     </div>
 
@@ -17,10 +17,10 @@
     <button  mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">   
         <img id="keep-icon1" mat-card-image src="/assets/icons/color_lens-24px.svg"/>
     </button>
-    <mat-menu #menu="matMenu">
+    <mat-menu  class="color-menu" #menu="matMenu">
         <div *ngFor="let colorEach of colors">
-        <button mat-menu-item >   
-           <mat-icon mat-mini-fab [ngStyle]="{'background-color':colorEach}"></mat-icon> 
+        <button  mat-menu-item>   
+           <button mat-mini-fab [ngStyle]="{'background-color':colorEach}" (click)="changeColor(colorEach, note)"></button> 
         </button>
         </div>      
     </mat-menu>
@@ -29,7 +29,7 @@
     <div class="toolicon">
             <!-- (click)="#" -->
     <button mat-icon-button>
-    <img id="keep-icon1" mat-card-image src="/assets/icons/insert_photo-24px.svg" />
+    <img id="keep-icon1" mat-card-image src="/assets/icons/insert_photo-24px.svg"/>
     </button>
     </div>
        

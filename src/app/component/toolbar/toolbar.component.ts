@@ -29,4 +29,17 @@ export class ToolbarComponent implements OnInit {
         console.log(error);
       });
   }
+  changeColor(color: any, notes: any) {
+    console.log(color);
+    console.log(notes.id);
+    console.log('user/notes/change-color/%23ffffff' + '&noteId=' + notes.id);
+    this.noteService.changeColor('user/notes/change-color/' + color + '?noteId=' + notes.id).subscribe(
+      (response) => {
+        console.log();
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      });
+  }
 }

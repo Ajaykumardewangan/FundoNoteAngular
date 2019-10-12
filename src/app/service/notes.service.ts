@@ -34,4 +34,9 @@ export class NotesService {
     console.log('inside archive');
     return this.http.put(this.API_URL + url, null, { headers: new HttpHeaders().set('token', localStorage.getItem('token')) });
   }
+  changeColor(url: any): Observable<any> {
+    console.log('inside colorCange() method :' + url);
+    console.log(this.API_URL + url);
+    return this.http.put(this.API_URL + url, null, { headers: new HttpHeaders().set('token', localStorage.getItem('token')) });
+  }
 }

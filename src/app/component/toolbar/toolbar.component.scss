@@ -3,17 +3,30 @@
     flex-direction: row;
     margin-left: -20px;;
 }
+
 .toolicon{
     padding: 2%;
 }
+
 .menuicon{
     border: none;
     outline: none;
     margin-top: -8px;
 }
+
 #keep-icon1 {
     margin-top: 0px;
     opacity: 0.6;
     width: 50%;
     height: 50%;
+}
+
+mat-menu-item {
+    width:20px;
+}
+
+.color-menu {
+    width: 250px;
+    display: flex;
+    flex-direction: row;
 }
