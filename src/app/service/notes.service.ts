@@ -39,4 +39,12 @@ export class NotesService {
     console.log(this.API_URL + url);
     return this.http.put(this.API_URL + url, null, { headers: new HttpHeaders().set('token', localStorage.getItem('token')) });
   }
+
+  deleteNote(url: string): Observable<any> {
+    return this.http.delete(this.API_URL + url, { headers: new HttpHeaders().set('token', localStorage.getItem('token')) });
+  }
+
+  reminder(url: string): Observable<any> {
+    return this.http.put(this.API_URL + url, null, { headers: new HttpHeaders().set('token', localStorage.getItem('token')) });
+  }
 }

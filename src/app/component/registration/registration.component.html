@@ -68,7 +68,7 @@
                 <mat-error *ngIf="registerForm.get('password').hasError('required')">
                     Please fill out this field.
                 </mat-error>
-                <mat-error *ngIf="registerForm.get('password').hasError('minLength(6)')">
+                <mat-error *ngIf="registerForm.get('password').hasError('minLength')">
                     Password min length must be 6 digit.
                 </mat-error>
               </mat-form-field>

@@ -21,12 +21,19 @@
     height: 50%;
 }
 
-mat-menu-item {
-    width:20px;
+// mat-menu-item {
+//     width:20px;
+// }
+
+.reminder-button {
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+}
+.span2 {
+    margin-left: auto;
 }
 
 .color-menu {
-    width: 250px;
-    display: flex;
-    flex-direction: row;
+    margin: 5px;
 }

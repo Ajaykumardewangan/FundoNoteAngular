@@ -34,7 +34,7 @@ closeDialog() {
   // tslint:disable-next-line: max-line-length
   this.notesService.updateNote('user/notes/update_note', this.notes, localStorage.getItem('token')).subscribe( (result) => {
     console.log(result);
-    this.snackBar.open(result, 'Ok', {duration: 3000});
+    this.snackBar.open('note updated', 'Ok', {duration: 3000});
     this.dialogRef.close();
 },
 (error) => {

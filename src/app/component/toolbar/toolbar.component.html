@@ -1,69 +1,103 @@
-<div  class="maindiv">
+<div class="maindiv">
     <div class="toolicon">
-     <!-- (click)="reminder()" -->
-    <button mat-icon-button >
-    <img id="keep-icon1" mat-card-image src="/assets/icons/notifications_paused-24px.svg" />
-    </button>
-    </div>
-    
-    <div class="toolicon">
-     <button mat-icon-button>
-    <img id="keep-icon1" mat-card-image src="/assets/icons/person_add-24px.svg"/>
-    </button>
+        <!-- (click)="reminder()" -->
+        <button mat-icon-button [matMenuTriggerFor]="menu2" aria-label="Example icon-button with a menu">
+            <img id="keep-icon1" mat-card-image src="/assets/icons/notifications_paused-24px.svg" />
+        </button>
+        <mat-menu #menu2="matMenu">
+            <button class="reminder-button" mat-menu-item (click)="reminder('today',note.id)">
+                <span>Later today</span><span class="span2">8:00pm</span>
+            </button>
+
+            <button class="reminder-button" mat-menu-item (click)="reminder('tomorrow',note.id)">
+                <span>Tomorrow</span><span class="span2">8:00pm</span>
+            </button>
+
+            <button class="reminder-button" mat-menu-item (click)="reminder('next-week',note.id)">
+                <span>Next week</span><span class="span2">Mon,8:00am</span>
+            </button>
+
+            <button mat-menu-item>
+                <label class="input-wrapper">
+                    <input placeholder="Peak date & time" [(ngModel)]="dateTime" [owlDateTimeTrigger]="dt"
+                        [owlDateTime]="dt">
+                    <owl-date-time #dt></owl-date-time>
+                    <button mat-icon-button (click)="reminder('pickdate',note.id)">
+                        <mat-icon>schedule</mat-icon>
+                    </button>
+                </label>
+            </button>
+        </mat-menu>
     </div>
 
     <div class="toolicon">
-     <!-- (click)="changeColor()" -->
-    <button  mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">   
-        <img id="keep-icon1" mat-card-image src="/assets/icons/color_lens-24px.svg"/>
-    </button>
-    <mat-menu  class="color-menu" #menu="matMenu">
+        <button mat-icon-button>
+            <img id="keep-icon1" mat-card-image src="/assets/icons/person_add-24px.svg" />
+        </button>
+    </div>
+
+    <div class="toolicon">
+        <!-- (click)="changeColor()" -->
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <img id="keep-icon1" mat-card-image src="/assets/icons/color_lens-24px.svg" />
+        </button>
+        <!-- <mat-menu  class="color-menu" #menu="matMenu">
         <div *ngFor="let colorEach of colors">
         <button  mat-menu-item>   
            <button mat-mini-fab [ngStyle]="{'background-color':colorEach}" (click)="changeColor(colorEach, note)"></button> 
         </button>
         </div>      
-    </mat-menu>
+    </mat-menu> -->
+        <mat-menu  #menu="matMenu" yPosition="above">
+            <div *ngFor="let rowcolors of colors" fxLayout="row">
+                <div   *ngFor="let colorEach of rowcolors">
+                    <!-- <div mat-menu-item> -->
+                        <button mat-mini-fab fxLayout="row"  [ngStyle]="{'background-color':colorEach.value}"
+                            (click)="changeColor(colorEach.value, note)" class="color-menu"></button>
+                    <!-- </div> --> 
+                </div>
+            </div>
+        </mat-menu>
     </div>
-    
+
     <div class="toolicon">
-            <!-- (click)="#" -->
-    <button mat-icon-button>
-    <img id="keep-icon1" mat-card-image src="/assets/icons/insert_photo-24px.svg"/>
-    </button>
+        <!-- (click)="#" -->
+        <button mat-icon-button>
+            <img id="keep-icon1" mat-card-image src="/assets/icons/insert_photo-24px.svg" />
+        </button>
     </div>
-       
-     <div class="toolicon">
-     <button mat-icon-button (click)="archive(note)">     
-    <img id="keep-icon1" mat-card-image src="/assets/icons/archive-24px.svg" />
-    </button>
+
+    <div class="toolicon">
+        <button mat-icon-button (click)="archive(note)">
+            <img id="keep-icon1" mat-card-image src="/assets/icons/archive-24px.svg" />
+        </button>
     </div>
-         
-<div class="toolicon">
-    <button class="menuicon"  mat-icon-button [matMenuTriggerFor]="menu1" aria-label="Example icon-button with a menu">
-         <mat-icon>more_vert</mat-icon>
-         </button>
-         <mat-menu #menu1="matMenu">
-                <!-- (click)="deleteNote()" -->
-         <button mat-menu-item >
-         <span>Delete note</span>
-         </button>
 
-         <button mat-menu-item >
-         <span>Change labels</span>
-         </button>
+    <div class="toolicon">
+        <button class="menuicon" mat-icon-button [matMenuTriggerFor]="menu1"
+            aria-label="Example icon-button with a menu">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu1="matMenu">
+            <button mat-menu-item (click)="deleteNote(note.id)">
+                <span>Delete note</span>
+            </button>
 
-         <button mat-menu-item >
-         <span>Add drawing</span>
-         </button>
+            <button mat-menu-item>
+                <span>Change labels</span>
+            </button>
 
-         <button mat-menu-item >
-         <span>Make a copy</span>
-         </button>
+            <button mat-menu-item>
+                <span>Add drawing</span>
+            </button>
 
-         <button mat-menu-item >
-         <span>Copy to Google Docs</span>
-         </button>               
-   </mat-menu>
-</div>
+            <button mat-menu-item>
+                <span>Make a copy</span>
+            </button>
+
+            <button mat-menu-item>
+                <span>Copy to Google Docs</span>
+            </button>
+        </mat-menu>
+    </div>
 </div>

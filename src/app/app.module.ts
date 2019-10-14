@@ -24,6 +24,8 @@ import { DisplayNotesComponent } from './component/display-notes/display-notes.c
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { ToolbarComponent } from './component/toolbar/toolbar.component';
 import { MatMenuModule} from '@angular/material/menu';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -56,7 +58,10 @@ import { MatMenuModule} from '@angular/material/menu';
     FormsModule,
     MatDialogModule,
     MatSnackBarModule,
-    MatMenuModule
+    MatMenuModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule,
+    FlexLayoutModule
   ],
   exports: [
     MatButtonModule,
