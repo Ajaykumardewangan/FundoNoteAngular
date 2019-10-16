@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/service/user.service';
 import { FormBuilder, FormGroup, Validators, FormControl, NgForm } from '@angular/forms';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-registration',
@@ -11,7 +12,9 @@ import { FormBuilder, FormGroup, Validators, FormControl, NgForm } from '@angula
 export class RegistrationComponent implements OnInit {
 
   registerForm: FormGroup;
-  constructor(private userService: UserService, private router: Router ) { }
+  constructor(private userService: UserService,
+              private router: Router,
+              private snackBar: MatSnackBar ) { }
 
   ngOnInit()  {
     this.registerForm = new FormGroup({
@@ -29,10 +32,13 @@ onSubmit(form: NgForm) {
 }
   this.userService.registration(this.registerForm.value).subscribe( (user) => {
     console.log(user);
+    this.snackBar.open('registration successfully verify by email', 'Ok', {duration: 3000});
     this.router.navigateByUrl('/login');
 },
-(error) => {
+(error: any) => {
     console.log( error);
+    this.registerForm.reset();
+    this.snackBar.open(error.error.description, 'error', {duration: 3000});
 });
 }
 }

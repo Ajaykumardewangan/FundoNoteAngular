@@ -12,7 +12,6 @@ import { MatDialog } from '@angular/material';
 export class DisplayNotesComponent implements OnInit {
 
   @Input() notes: any;
-  @Output() noteEvent = new EventEmitter<any>();
 
   constructor(
     private noteService: NotesService,
@@ -28,6 +27,15 @@ export class DisplayNotesComponent implements OnInit {
       width: '450px',
       height: 'auto',
       data: note
+    });
+  }
+
+  pinUnpin(noteId: any) {
+    this.noteService.archive('user/notes/pinned?noteId=' + noteId).subscribe(response => {
+       console.log();
+    },
+    error => {
+      console.log(error);
     });
   }
 }

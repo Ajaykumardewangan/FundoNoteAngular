@@ -8,6 +8,9 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { NotesComponent } from './component/notes/notes.component';
 import { CreateNoteComponent } from './component/create-note/create-note.component';
 import { ToolbarComponent } from './component/toolbar/toolbar.component';
+import { ReminderComponent } from './component/reminder/reminder.component';
+import { ArchivednotesComponent } from './component/archivednotes/archivednotes.component';
+import { TrashnotesComponent } from './component/trashnotes/trashnotes.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -17,11 +20,14 @@ const routes: Routes = [
   {path: 'resetpassword/:token', component: ResetPasswordComponent},
   {path: 'dashboard', component: DashboardComponent,
   children: [
-     {path: '', component: NotesComponent}
+     {path: '', component: NotesComponent},
+     {path: 'reminder', component: ReminderComponent},
+     {path: 'notes', component: NotesComponent },
+     {path: 'archivednotes', component: ArchivednotesComponent },
+     {path: 'trashnotes', component: TrashnotesComponent }
    ]
 },
   {path: 'create-note', component: CreateNoteComponent },
-  {path: 'notes', component: NotesComponent },
   {path: 'toolbar', component: ToolbarComponent },
 ];
 

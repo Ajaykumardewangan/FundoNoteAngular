@@ -26,6 +26,9 @@ import { ToolbarComponent } from './component/toolbar/toolbar.component';
 import { MatMenuModule} from '@angular/material/menu';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ReminderComponent } from './component/reminder/reminder.component';
+import { ArchivednotesComponent } from './component/archivednotes/archivednotes.component';
+import { TrashnotesComponent } from './component/trashnotes/trashnotes.component';
 
 
 @NgModule({
@@ -38,6 +41,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     DailogboxComponent,
     DisplayNotesComponent,
     ToolbarComponent,
+    ReminderComponent,
+    ArchivednotesComponent,
+    TrashnotesComponent,
   ],
   imports: [
     BrowserModule,

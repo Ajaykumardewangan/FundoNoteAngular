@@ -1,7 +1,10 @@
 <div>
 <div class="notes-div">   
         <mat-card class="note-mat-card" [ngStyle]="{'background-color':note.color}">
+                     <div fxLayout="row">
                         <input class="title-text" type="text" [(ngModel)]="note.noteTitle" [ngStyle]="{'background-color':note.color}"/>
+                        <button mat-icon-button (click)="pinUnpin(note.id)"><img class="pin_image" src="/assets/images/pin.png"></button>
+                     </div>
                         <textarea  
                              [(ngModel)]="note.description" 
                              cdkTextareaAutosize

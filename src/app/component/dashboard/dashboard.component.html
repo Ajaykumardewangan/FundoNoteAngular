@@ -59,12 +59,12 @@
                                 <div>
                                         <div>
                                              <div>      
-                                              <button class="sidebar-buttons" mat-stroked-button>
+                                              <button class="sidebar-buttons" mat-stroked-button (click)="notes()">
                                                 <mat-icon class="maticons"><img src="/assets/icons/emoji_objects-24px.svg"></mat-icon><span class="sidenavtext">Notes</span>
                                                </button>
                                             </div>
                                             <div>
-                                              <button  class="sidebar-buttons" mat-stroked-button>
+                                              <button  class="sidebar-buttons" mat-stroked-button (click)="reminderNote()">
                                                         <mat-icon class="maticons">notifications_none</mat-icon><span class="sidenavtext">Reminder</span>
                                               </button>
                                             </div>
@@ -88,12 +88,12 @@
                                         <mat-divider></mat-divider> 
                                         <div>
                                             <div>
-                                                <button class="sidebar-buttons" mat-stroked-button>
+                                                <button class="sidebar-buttons" mat-stroked-button (click)="archivedNotes()">
                                                     <mat-icon class="maticons"><img src="/assets/icons/archive-24px.svg"></mat-icon><span class="sidenavtext">Archive</span>
                                                 </button>
                                             </div>
                                             <div>
-                                                <button  class="sidebar-buttons" mat-stroked-button>
+                                                <button  class="sidebar-buttons" mat-stroked-button (click)="trashNotes()">
                                                     <mat-icon class="maticons">delete_outline</mat-icon><span class="sidenavtext">Trash</span>
                                                 </button>
                                             </div>
@@ -101,7 +101,7 @@
                                 </div>
                         </mat-drawer>
                         <div class="view-content">
-                                <app-create-note></app-create-note>
+                                
                                  <router-outlet></router-outlet>
                         </div>
                 </mat-drawer-container>

@@ -35,4 +35,18 @@ export class DashboardComponent implements OnInit {
       console.log(error);
   });
    }
+
+   notes() {
+     this.router.navigateByUrl('/dashboard/notes');
+   }
+
+   reminderNote() {
+    this.router.navigateByUrl('/dashboard/reminder');
+   }
+   archivedNotes() {
+    this.router.navigateByUrl('/dashboard/archivednotes');
+   }
+   trashNotes() {
+     this.router.navigateByUrl('/dashboard/trashnotes');
+     }
 }

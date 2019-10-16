@@ -2,6 +2,7 @@ import { Component, OnInit, Inject, Input, ChangeDetectionStrategy } from '@angu
 import { NotesService } from 'src/app/service/notes.service';
 import { WebStorageService, LOCAL_STORAGE } from 'angular-webstorage-service';
 import { formatDate } from '@angular/common';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-toolbar',
@@ -22,16 +23,16 @@ export class ToolbarComponent implements OnInit {
   colors =
     // tslint:disable-next-line: max-line-length
     [
-    // tslint:disable-next-line: max-line-length
-    [{ name: 'Blue', value: 'blue' }, { name: 'green', value: 'green' }, { name: 'Yellow', value: 'yellow' }, { name: 'skyblue', value: 'skyblue' }],
-    // tslint:disable-next-line: max-line-length
-    [{ name: 'Brown', value: 'brown' }, { name: 'orange', value: 'orange' }, { name: 'pink', value: 'pink' }, { name: 'white', value: 'white' }],
-    // tslint:disable-next-line: max-line-length
-    [{ name: 'lightblue', value: 'lightblue' }, { name: 'red', value: 'red' }, { name: 'aqua', value: 'aqua' }, { name: 'silver', value: 'silver' }]
+      // tslint:disable-next-line: max-line-length
+      [{ name: 'Blue', value: 'blue' }, { name: 'green', value: 'green' }, { name: 'Yellow', value: 'yellow' }, { name: 'skyblue', value: 'skyblue' }],
+      // tslint:disable-next-line: max-line-length
+      [{ name: 'Brown', value: 'brown' }, { name: 'orange', value: 'orange' }, { name: 'pink', value: 'pink' }, { name: 'white', value: 'white' }],
+      // tslint:disable-next-line: max-line-length
+      [{ name: 'lightblue', value: 'lightblue' }, { name: 'red', value: 'red' }, { name: 'aqua', value: 'aqua' }, { name: 'silver', value: 'silver' }]
     ];
   constructor(
     private noteService: NotesService,
-    @Inject(LOCAL_STORAGE) private storage: WebStorageService) { }
+    private snackbar: MatSnackBar) { }
 
   ngOnInit() {
   }
@@ -40,9 +41,11 @@ export class ToolbarComponent implements OnInit {
     this.noteService.archive('user/notes/archive?noteId=' + notes.id).subscribe(
       (response) => {
         console.log(response);
+        this.snackbar.open('note archived', 'ok', {duration: 3000});
       },
       (error) => {
         console.log(error);
+        this.snackbar.open(error.error.description, 'error', {duration: 3000});
       });
   }
   changeColor(color: any, notes: any) {
@@ -56,12 +59,14 @@ export class ToolbarComponent implements OnInit {
       });
   }
 
-  deleteNote(noteId: any) {
-    this.noteService.deleteNote('user/notes/delete_note?noteId=' + noteId).subscribe(Response => {
+  addToTrash(noteId: any) {
+    this.noteService.archive('user/notes/trash?noteId=' + noteId).subscribe(Response => {
       console.log(Response);
+      this.snackbar.open('note Trashed', 'ok', {duration: 3000});
     },
       error => {
         console.log(error);
+        this.snackbar.open(error.error.description, 'error', {duration: 3000});
       }
     );
   }
@@ -76,20 +81,16 @@ export class ToolbarComponent implements OnInit {
     if (selectedDateTime == 'today') {
       today = formatDate(dateNow, 'yyyy-MM-ddT20:00:00', 'en-IND', '+5:30');
       console.log('todays DateTime : ', today);
-    }
-    else if (selectedDateTime == 'tomorrow') {
+    } else if (selectedDateTime == 'tomorrow') {
       today = formatDate(dateNow.setDate(dateNow.getDate() + 1), 'yyyy-MM-ddT08:00:00', 'en-IND', '+5:30');
       console.log('tomorrow DateTime : ', today);
-    }
-    else if (selectedDateTime == 'next-week') {
+    } else if (selectedDateTime == 'next-week') {
       today = formatDate(dateNow.setDate(dateNow.getDate() + 7), 'yyyy-MM-ddT20:00:00', 'en-IND', '+5:30');
-    }
-    else {
+    } else {
       today = formatDate(this.dateTime, 'yyyy-MM-ddTHH:MM:SS', 'en-IND', '+5:30');
       console.log('Selecting dateTime : ', today);
 
     }
-    
     this.noteService.reminder('user/notes/reminder?noteId=' + noteId + '&reminderDate=' + today).subscribe(Response => {
       // this.noteService.reminder('user/notes/delete_note?noteId=26&reminderDate=2019-09-14T12:00:00').subscribe( Response => {
       console.log(Response);

@@ -1,0 +1,34 @@
+<div>
+    <div>
+            <div class="notes-div">
+                    <mat-card class="note-mat-card" *ngFor="let note of notes"
+                            [ngStyle]="{'background-color':note.color}">
+                            <div (click)="openDialog(note)">
+                                    <input class="title-text" type="text" [(ngModel)]="note.noteTitle"
+                                            [ngStyle]="{'background-color':note.color}" disabled />
+                                    <textarea (click)="openDialog(note)" [(ngModel)]="note.description"
+                                            cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+                                            cdkAutosizeMinRows="1" cdkAutosizeMaxRows="auto"
+                                            [ngStyle]="{'background-color':note.color}" disabled></textarea>
+                            </div>
+                            <div class="note-toolbar">
+                                <div class="toolicon">
+                                    <button class="menuicon" mat-icon-button [matMenuTriggerFor]="menu1"
+                                        aria-label="Example icon-button with a menu">
+                                        <mat-icon>more_vert</mat-icon>
+                                    </button>
+                                    <mat-menu #menu1="matMenu">
+                                        <button mat-menu-item (click)="deleteNote(note.id)">
+                                            <span>Delete note</span>
+                                        </button>
+                            
+                                        <button mat-menu-item (click)="addToTrash(note.id)">
+                                            <span>Restore</span>
+                                        </button>
+                                        </mat-menu>
+                                </div>  
+                            </div>
+                    </mat-card>
+            </div>
+    </div>
+</div>

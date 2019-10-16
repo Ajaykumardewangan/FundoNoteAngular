@@ -47,4 +47,17 @@ export class NotesService {
   reminder(url: string): Observable<any> {
     return this.http.put(this.API_URL + url, null, { headers: new HttpHeaders().set('token', localStorage.getItem('token')) });
   }
+
+  getReminders(url: any): Observable<any> {
+    return this.http.get<any>(this.API_URL + url, { headers: new HttpHeaders().set('token', localStorage.getItem('token')) });
+  }
+
+  getArchivedNotes(url: any): Observable<any> {
+    return this.http.get<any>(this.API_URL + url, { headers: new HttpHeaders().set('token', localStorage.getItem('token')) });
+  }
+
+  getTrash(url: any): Observable<any> {
+    return this.http.get<any>(this.API_URL + url, {headers: new HttpHeaders().set('token', localStorage.getItem('token')) });
+  }
 }
+

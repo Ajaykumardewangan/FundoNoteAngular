@@ -3,6 +3,7 @@ import { UserService } from 'src/app/service/user.service';
 import { Router, ParamMap, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators, NgForm, AbstractControl, ValidationErrors } from '@angular/forms';
 import { MyErrorStateMatcher } from 'src/app/Validators';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-reset-password',
@@ -14,7 +15,10 @@ export class ResetPasswordComponent implements OnInit {
   resetForm: FormGroup;
   token: string;
   matcher = new MyErrorStateMatcher();
-  constructor(private userService: UserService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private userService: UserService,
+              private router: Router,
+              private route: ActivatedRoute,
+              private snackbar: MatSnackBar) { }
 
   ngOnInit() {
     this.resetForm = new FormGroup({
@@ -36,10 +40,12 @@ export class ResetPasswordComponent implements OnInit {
     console.log(this.token);
     this.userService.resetPassword(this.resetForm.value, this.token).subscribe( (user) => {
       console.log(user);
+      this.snackbar.open('reminder added on note', 'ok', {duration: 3000});
       this.router.navigateByUrl('/login');
   },
   (error) => {
       console.log( error);
+      this.snackbar.open(error.error.description, 'error', {duration: 3000});
   });
   }
 

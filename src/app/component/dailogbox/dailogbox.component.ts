@@ -38,7 +38,16 @@ closeDialog() {
     this.dialogRef.close();
 },
 (error) => {
-  this.snackBar.open(error.description, 'error', {duration: 3000});
+  this.snackBar.open(error.error.description, 'error', {duration: 3000});
 });
+}
+
+pinUnpin(noteId: any) {
+  this.notesService.archive('user/notes/pinned?noteId=' + noteId).subscribe(response => {
+     console.log();
+  },
+  error => {
+    console.log(error);
+  });
 }
 }
