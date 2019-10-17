@@ -3,6 +3,8 @@ import { NotesService } from 'src/app/service/notes.service';
 import { WebStorageService, LOCAL_STORAGE } from 'angular-webstorage-service';
 import { formatDate } from '@angular/common';
 import { MatSnackBar } from '@angular/material';
+import { LabelsService } from 'src/app/service/labels.service';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-toolbar',
@@ -13,6 +15,11 @@ import { MatSnackBar } from '@angular/material';
 export class ToolbarComponent implements OnInit {
 
   @Input() note: any;
+
+  popup = false;
+ labelList: [];
+ inputdata = '';
+ labelForm: FormGroup;
 
   public dateTime: any;
 
@@ -32,9 +39,15 @@ export class ToolbarComponent implements OnInit {
     ];
   constructor(
     private noteService: NotesService,
-    private snackbar: MatSnackBar) { }
+    private snackbar: MatSnackBar,
+    private labelService: LabelsService) { }
 
   ngOnInit() {
+    this.getAllLabel();
+    console.log(this.labelList);
+
+    this.labelForm = new FormGroup({
+      labelName: new FormControl('')});
   }
 
   archive(notes: any) {
@@ -97,6 +110,37 @@ export class ToolbarComponent implements OnInit {
     },
       error => {
         console.log(error);
+      }
+    );
+  }
+
+  onPost(label: any) {
+    console.log(label);
+    console.log(this.note.id);
+    this.labelService.addlabeltonote('user/notes/mappingNoteLabel?noteId=' + this.note.id, label).subscribe(
+      (response: any) => {
+        console.log(response.statusMessage );
+      },
+      (error: any) => {
+        console.log('in error' , error.error.description);
+       } );
+  }
+  onAddLabelToNote() {
+    console.log(this.labelForm.value);
+    this.labelService.addlabeltonote('user/notes/mappingNoteLabel?noteId=' + this.note.id, this.labelForm.value).subscribe(
+      (response: any) => {
+        console.log(response.statusMessage );
+      },
+      (error: any) => {
+        console.log('in error');
+
+       } );
+  }
+
+  getAllLabel() {
+    this.labelService.getLabels(localStorage.getItem('token')).subscribe (
+      (data: any) => {
+        this.labelList = data;
       }
     );
   }

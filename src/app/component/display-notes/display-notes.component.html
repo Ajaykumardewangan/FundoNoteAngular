@@ -3,17 +3,18 @@
                 <div class="notes-div">
                         <mat-card class="note-mat-card" *ngFor="let note of notes"
                                 [ngStyle]="{'background-color':note.color}">
-                                <div (click)="openDialog(note)">
+                                <div (click)="openDialog(note)" class="notes">
                                         <div fxLayout="row">
                                         <input class="title-text" type="text" [(ngModel)]="note.noteTitle"
                                                 [ngStyle]="{'background-color':note.color}" disabled />
-                                         <button mat-icon-button><img class="pin_image" src="/assets/images/pin.png"></button>      
+                                         <button mat-icon-button (click)="pinUnpin(note.id)"><img class="pin_image" src="/assets/images/pin.png"></button>      
                                         </div>       
                                         <textarea (click)="openDialog(note)" [(ngModel)]="note.description"
                                                 cdkTextareaAutosize #autosize="cdkTextareaAutosize"
                                                 cdkAutosizeMinRows="1" cdkAutosizeMaxRows="auto"
                                                 [ngStyle]="{'background-color':note.color}" disabled></textarea>
                                 </div>
+                                <p></p>
                                 <div class="note-toolbar">
                                         <app-toolbar [note]='note'></app-toolbar>
                                 </div>

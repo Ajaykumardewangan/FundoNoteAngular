@@ -1,0 +1,29 @@
+<div>
+    <div class="header">
+        <form [formGroup]="labelForm">
+            
+                    <div style='display: flex;'>
+                    <div>   <button mat-icon-button (click)="clear()"> <mat-icon>clear</mat-icon></button></div>
+                    <div style='margin-top: 15px;'>   <input  formControlName="labelName" style="width: 15vw;border:none;outline:none;"
+                     (click)="$event.stopPropagation()"></div>
+                     <div class="editlabel"> <button mat-icon-button (click)='createLabel()' > <mat-icon>done</mat-icon></button></div> 
+                    </div>
+         
+        </form>
+    </div>
+    <div  *ngFor="let list of labelList" >
+        <div style='display: flex;'>
+            <div><button mat-icon-button>
+                <mat-icon (click)='deleteLabel(list)'>delete</mat-icon></button>
+            </div> 
+    
+            <div style='margin-top: 15px;'> 
+                    <form [formGroup]="editlabelForm">
+                <input matInput  formControlName="labelName" class="editinput"
+                (click)="$event.stopPropagation()" [value]="list.labelName">
+                    </form>
+                </div> 
+            <div class="editlabel"><button mat-icon-button (click)="updatelabel(list)"><mat-icon class="editicon">edit</mat-icon></button></div>  
+            </div>    
+    </div>
+    </div>

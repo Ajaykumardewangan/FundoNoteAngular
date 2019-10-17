@@ -41,13 +41,6 @@
         <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
             <img id="keep-icon1" mat-card-image src="/assets/icons/color_lens-24px.svg" />
         </button>
-        <!-- <mat-menu  class="color-menu" #menu="matMenu">
-        <div *ngFor="let colorEach of colors">
-        <button  mat-menu-item>   
-           <button mat-mini-fab [ngStyle]="{'background-color':colorEach}" (click)="changeColor(colorEach, note)"></button> 
-        </button>
-        </div>      
-    </mat-menu> -->
         <mat-menu  #menu="matMenu" yPosition="above">
             <div *ngFor="let rowcolors of colors" fxLayout="row">
                 <div   *ngFor="let colorEach of rowcolors">
@@ -83,7 +76,7 @@
                 <span>Delete note</span>
             </button>
 
-            <button mat-menu-item>
+            <button mat-menu-item [matMenuTriggerFor]="beforeMenu" (click)="getAllLabel()">
                 <span>Change labels</span>
             </button>
 
@@ -98,6 +91,44 @@
             <button mat-menu-item>
                 <span>Copy to Google Docs</span>
             </button>
+            <div>
+                    <mat-menu #beforeMenu="matMenu">
+                        <!-- <div *ngFor="let list of labelList"> -->
+                            <div>
+                                <!-- <button mat-stroked-button class="button_all">
+                                     <mat-icon>edit</mat-icon> 
+                                   
+                                     <button>   </button>
+                                   
+                                </button> -->
+                                <div class="header">
+                                    <form [formGroup]="labelForm">
+                                        <mat-form-field class="example-full-width">
+                                                <input matInput placeholder="Enter Label Name" formControlName="labelName" (click)="$event.stopPropagation()" [(ngModel)]="inputdata">
+                                        </mat-form-field>
+                                    </form>
+                                </div>
+                                <div class="main">
+                                <mat-selection-list  *ngFor="let label of labelList" (click)="$event.stopPropagation()">
+                                        
+                                        <mat-list-option (click)="onPost(label)">
+                                        <span class="labellist"> {{label.labelName}} </span>     
+                                        </mat-list-option>
+                                        
+                                      </mat-selection-list>
+                                    </div>
+                                    <div class="footer">
+                                            <button mat-icon-button (click)="onAddLabelToNote()">
+                                                <mat-icon>add</mat-icon>
+                                                <span>Create</span>
+                                                <span> "{{inputdata}}"</span>
+                                            </button>
+                                    </div>
+                            </div>
+                        <!-- </div> -->
+                    </mat-menu>
+    
+                </div>
         </mat-menu>
     </div>
 </div>

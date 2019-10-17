@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatFormFieldModule, MatButtonModule, MatInputModule, MatCardModule } from '@angular/material';
+import { MatFormFieldModule, MatButtonModule, MatInputModule, MatCardModule, MatListModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { UserService } from './service/user.service';
@@ -29,7 +29,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReminderComponent } from './component/reminder/reminder.component';
 import { ArchivednotesComponent } from './component/archivednotes/archivednotes.component';
 import { TrashnotesComponent } from './component/trashnotes/trashnotes.component';
-
+import { EditlabeldialogComponent } from './component/editlabeldialog/editlabeldialog.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +44,7 @@ import { TrashnotesComponent } from './component/trashnotes/trashnotes.component
     ReminderComponent,
     ArchivednotesComponent,
     TrashnotesComponent,
+    EditlabeldialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,7 +68,8 @@ import { TrashnotesComponent } from './component/trashnotes/trashnotes.component
     MatMenuModule,
     OwlDateTimeModule,
     OwlNativeDateTimeModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatListModule
   ],
   exports: [
     MatButtonModule,
@@ -79,9 +81,8 @@ import { TrashnotesComponent } from './component/trashnotes/trashnotes.component
     MatIconModule
   ],
   entryComponents: [
-    DailogboxComponent],
-
-  providers: [UserService],
-  bootstrap: [AppComponent]
+    DailogboxComponent, EditlabeldialogComponent],
+    providers: [UserService],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

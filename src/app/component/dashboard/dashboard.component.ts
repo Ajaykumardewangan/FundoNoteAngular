@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 import { LOCAL_STORAGE, WebStorageService } from 'angular-webstorage-service';
 import { LabelsService } from 'src/app/service/labels.service';
 import { NotesService } from 'src/app/service/notes.service';
+import { MatDialog } from '@angular/material';
+import { EditlabeldialogComponent } from '../editlabeldialog/editlabeldialog.component';
 
 
 @Component({
@@ -23,7 +25,8 @@ export class DashboardComponent implements OnInit {
     private userService: UserService,
     private labelService: LabelsService,
     private noteService: NotesService,
-    private router: Router
+    private router: Router,
+    public dialog: MatDialog
     ) {
    }
   ngOnInit() {
@@ -49,4 +52,11 @@ export class DashboardComponent implements OnInit {
    trashNotes() {
      this.router.navigateByUrl('/dashboard/trashnotes');
      }
+
+     openEditlabelDailog() {
+      const dialogRef = this.dialog.open(EditlabeldialogComponent, {
+        width: 'auto',
+        height: 'auto',
+       });
+      }
 }

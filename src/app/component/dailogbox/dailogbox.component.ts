@@ -14,7 +14,6 @@ export class DailogboxComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<DailogboxComponent>,
               @Inject(MAT_DIALOG_DATA) public note: any,
               private notesService: NotesService,
-              @Inject(LOCAL_STORAGE) private storage: WebStorageService,
               private snackBar: MatSnackBar) {
                 this.notes = note;
               }
