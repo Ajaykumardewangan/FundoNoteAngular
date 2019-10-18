@@ -30,6 +30,7 @@ import { ReminderComponent } from './component/reminder/reminder.component';
 import { ArchivednotesComponent } from './component/archivednotes/archivednotes.component';
 import { TrashnotesComponent } from './component/trashnotes/trashnotes.component';
 import { EditlabeldialogComponent } from './component/editlabeldialog/editlabeldialog.component';
+import { CollaboratordialogboxComponent } from './component/collaboratordialogbox/collaboratordialogbox.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { EditlabeldialogComponent } from './component/editlabeldialog/editlabeld
     ArchivednotesComponent,
     TrashnotesComponent,
     EditlabeldialogComponent,
+    CollaboratordialogboxComponent,
   ],
   imports: [
     BrowserModule,
@@ -81,7 +83,7 @@ import { EditlabeldialogComponent } from './component/editlabeldialog/editlabeld
     MatIconModule
   ],
   entryComponents: [
-    DailogboxComponent, EditlabeldialogComponent],
+    DailogboxComponent, EditlabeldialogComponent, CollaboratordialogboxComponent],
     providers: [UserService],
     bootstrap: [AppComponent]
 })

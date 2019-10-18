@@ -1,0 +1,13 @@
+<p>collaboratordialogbox works!</p>
+<form [formGroup]="emailForm">
+    <div>
+        <input class="title-text" type="text" formControlName="email" placeholder="Person or email to share with"/>
+    </div>
+    <div>
+    <div fxLayout="row" class="buttons">
+        <button mat-button>Cancel</button>
+        <button mat-button (click)="addCollaborator()">Save</button>
+    </div>
+    </div>
+</form>
+    

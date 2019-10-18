@@ -2,9 +2,10 @@ import { Component, OnInit, Inject, Input, ChangeDetectionStrategy } from '@angu
 import { NotesService } from 'src/app/service/notes.service';
 import { WebStorageService, LOCAL_STORAGE } from 'angular-webstorage-service';
 import { formatDate } from '@angular/common';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, MatDialog } from '@angular/material';
 import { LabelsService } from 'src/app/service/labels.service';
 import { FormGroup, FormControl } from '@angular/forms';
+import { CollaboratordialogboxComponent } from '../collaboratordialogbox/collaboratordialogbox.component';
 
 @Component({
   selector: 'app-toolbar',
@@ -40,7 +41,8 @@ export class ToolbarComponent implements OnInit {
   constructor(
     private noteService: NotesService,
     private snackbar: MatSnackBar,
-    private labelService: LabelsService) { }
+    private labelService: LabelsService,
+    public dialog: MatDialog) { }
 
   ngOnInit() {
     this.getAllLabel();
@@ -143,5 +145,13 @@ export class ToolbarComponent implements OnInit {
         this.labelList = data;
       }
     );
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(CollaboratordialogboxComponent, {
+      width: '450px',
+      height: 'auto',
+      data: this.note
+    });
   }
 }

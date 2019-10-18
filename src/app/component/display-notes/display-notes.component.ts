@@ -15,7 +15,6 @@ export class DisplayNotesComponent implements OnInit {
 
   constructor(
     private noteService: NotesService,
-    @Inject(LOCAL_STORAGE) private storage: WebStorageService,
     public dialog: MatDialog
   ) { }
 

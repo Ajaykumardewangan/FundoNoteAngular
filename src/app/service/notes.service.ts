@@ -40,6 +40,11 @@ export class NotesService {
     return this.http.put(this.API_URL + url, null, { headers: new HttpHeaders().set('token', localStorage.getItem('token')) });
   }
 
+  addToCollaborator(url: any): Observable<any> {
+    console.log(url);
+    return this.http.post(this.API_URL + url, null, { headers: new HttpHeaders().set('token', localStorage.getItem('token')) });
+  }
+
   deleteNote(url: string): Observable<any> {
     return this.http.delete(this.API_URL + url, { headers: new HttpHeaders().set('token', localStorage.getItem('token')) });
   }
