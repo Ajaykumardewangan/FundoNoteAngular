@@ -1,14 +1,15 @@
 .maindiv{
     display: flex;
+    width: 100%;
     flex-direction: row;
     margin-left: -20px;;
 }
 
 .toolicon{
-    padding: 2%;
+    padding: 1%;
 }
 
-.menuicon{
+.menuicon {
     border: none;
     outline: none;
     margin-top: -8px;

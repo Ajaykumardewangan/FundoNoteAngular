@@ -43,7 +43,8 @@ closeDialog() {
 
 pinUnpin(noteId: any) {
   this.notesService.archive('user/notes/pinned?noteId=' + noteId).subscribe(response => {
-     console.log();
+     console.log(response);
+     this.snackBar.open(response.msg, 'Ok', {duration: 3000});
   },
   error => {
     console.log(error);

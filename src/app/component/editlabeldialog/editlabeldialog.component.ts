@@ -76,5 +76,4 @@ export class EditlabeldialogComponent implements OnInit {
         this.dialogRef.close();
       });
   }
-
 }
