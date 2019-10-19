@@ -2,7 +2,6 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA, MatSnackBar, MatDialog } from '@angular/material';
 import { NotesService } from 'src/app/service/notes.service';
 import { FormGroup, FormControl, NgForm } from '@angular/forms';
-import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-collaboratordialogbox',
@@ -12,19 +11,34 @@ import { UserService } from 'src/app/service/user.service';
 export class CollaboratordialogboxComponent implements OnInit {
 
   notes: any;
+  collaboratedUsers: any;
   emailForm: FormGroup;
   constructor(public dialogRef: MatDialogRef<CollaboratordialogboxComponent>,
               @Inject(MAT_DIALOG_DATA) public note: any,
               private snackBar: MatSnackBar,
               private notesService: NotesService) {
               this.notes = note;
+              console.log('this is collaborator testing');
+              console.log(this.notes);
     }
 
   ngOnInit() {
     this.emailForm = new FormGroup({
        email : new FormControl('')
     });
+    this.getCollaboratedUsers();
   }
+
+getCollaboratedUsers() {
+  console.log( this.notes.id);
+  this.notesService.getCollaboratedUserForNote('user/notes/getCollaboratedUser?noteId=' + this.notes.id).subscribe(response => {
+    console.log(response);
+    this.collaboratedUsers = response;
+  },
+  error => {
+     console.log(error);
+  });
+}
 
   addCollaborator(form: NgForm) {
     console.log(form);
@@ -39,5 +53,20 @@ export class CollaboratordialogboxComponent implements OnInit {
     console.log(error);
     this.snackBar.open(error.error.description, 'error', {duration: 3000});
   });
+  }
+
+  removeCollaboratedUser(email: any) {
+      this.notesService.removeCollaboratorFromNote('user/notes/removecollaborator?email=' + email + '&noteId=' + this.notes.id).subscribe(
+      (response) => {
+      console.log(response);
+      this.snackBar.open(response.msg, 'Ok', {duration: 3000});
+      this.dialogRef.close();
+  },
+  (error) => {
+    console.log(error);
+    this.snackBar.open(error.error.description, 'error', {duration: 3000});
+    this.dialogRef.close();
+  });
+
   }
 }

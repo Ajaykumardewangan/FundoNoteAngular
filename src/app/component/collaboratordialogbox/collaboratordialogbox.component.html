@@ -1,6 +1,13 @@
 <p>collaboratordialogbox works!</p>
 <form [formGroup]="emailForm">
     <div>
+        <div fxLayout="row" *ngFor="let collaborator of collaboratedUsers">
+            <mat-icon><img id="keep-icon1" mat-card-image src="/assets/icons/account_circle-24px.svg" /></mat-icon>
+            <span>{{collaborator}}</span>
+            <button class="remove-button" mat-icon-button (click)="removeCollaboratedUser(collaborator)"><mat-icon>clear</mat-icon></button>
+        </div>
+    </div>
+    <div>
         <input class="title-text" type="text" formControlName="email" placeholder="Person or email to share with"/>
     </div>
     <div>

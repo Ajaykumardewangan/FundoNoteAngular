@@ -44,6 +44,15 @@ export class NotesService {
     console.log(url);
     return this.http.post(this.API_URL + url, null, { headers: new HttpHeaders().set('token', localStorage.getItem('token')) });
   }
+  removeCollaboratorFromNote(url: any): Observable<any> {
+    console.log(url);
+    return this.http.delete(this.API_URL + url, { headers: new HttpHeaders().set('token', localStorage.getItem('token')) });
+  }
+
+  getCollaboratedUserForNote(url: any): Observable<any> {
+    console.log(url);
+    return this.http.get(this.API_URL + url, {headers: new HttpHeaders().set('token', localStorage.getItem('token'))});
+  }
 
   deleteNote(url: string): Observable<any> {
     return this.http.delete(this.API_URL + url, { headers: new HttpHeaders().set('token', localStorage.getItem('token')) });

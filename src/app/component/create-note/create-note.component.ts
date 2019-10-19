@@ -22,7 +22,7 @@ export class CreateNoteComponent implements OnInit {
       noteTitle: new FormControl(''),
       description: new FormControl(''),
       remindMe: new FormControl(''),
-      colour: new FormControl(''),
+      color: new FormControl('white'),
       archive: new FormControl(''),
       isPinned: new FormControl(''),
     });
