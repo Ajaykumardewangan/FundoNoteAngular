@@ -39,4 +39,9 @@ export class LabelsService {
         return this.http.delete(this.API_URL + url,
           {headers: new HttpHeaders().set('token', localStorage.getItem('token')) });
       }
+
+      deletelabelfromnote(url: any) {
+        return this.http.delete(this.API_URL + url,
+          { headers: new HttpHeaders().set('token', localStorage.getItem('token'))});
+      }
 }

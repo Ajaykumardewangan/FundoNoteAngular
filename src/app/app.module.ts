@@ -31,6 +31,7 @@ import { ArchivednotesComponent } from './component/archivednotes/archivednotes.
 import { TrashnotesComponent } from './component/trashnotes/trashnotes.component';
 import { EditlabeldialogComponent } from './component/editlabeldialog/editlabeldialog.component';
 import { CollaboratordialogboxComponent } from './component/collaboratordialogbox/collaboratordialogbox.component';
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { CollaboratordialogboxComponent } from './component/collaboratordialogbo
     OwlDateTimeModule,
     OwlNativeDateTimeModule,
     FlexLayoutModule,
-    MatListModule
+    MatListModule,
+    MatChipsModule
   ],
   exports: [
     MatButtonModule,

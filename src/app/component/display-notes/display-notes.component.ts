@@ -3,6 +3,7 @@ import { DailogboxComponent } from '../dailogbox/dailogbox.component';
 import { NotesService } from 'src/app/service/notes.service';
 import { LOCAL_STORAGE, WebStorageService } from 'angular-webstorage-service';
 import { MatDialog } from '@angular/material';
+import { LabelsService } from 'src/app/service/labels.service';
 
 @Component({
   selector: 'app-display-notes',
@@ -12,9 +13,12 @@ import { MatDialog } from '@angular/material';
 export class DisplayNotesComponent implements OnInit {
 
   @Input() notes: any;
+  removable = true;
+  selectable = true;
 
   constructor(
     private noteService: NotesService,
+    private labelService: LabelsService,
     public dialog: MatDialog
   ) { }
 
@@ -37,4 +41,28 @@ export class DisplayNotesComponent implements OnInit {
       console.log(error);
     });
   }
+
+  onDelete(note: any, label: any) {
+    this.labelService.deletelabelfromnote('user/notes/deleteLabelFromNote?noteId=' + note.id + '&labelId=' + label.id)
+    .subscribe(
+      (response: any) => {
+        console.log(response.statusMessage );
+      },
+      (error: any) => {
+        console.log('in error' , error.error.description);
+
+       } );
+  }
+
+  deleteRemindMe(note: any) {
+    this.noteService.deleteRemainder('user/notes/deleteRemainder?noteId=' + note.id)
+    .subscribe(
+      (responce: any) => {
+        console.log(responce.statusMessage);
+      },
+      (error: any) => {
+        console.log('in error' , error.error.description);
+      }
+    );
+    }
 }
