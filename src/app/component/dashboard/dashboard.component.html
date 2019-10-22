@@ -30,27 +30,41 @@
                                         </button>
                                 </div>
                                 <div>
-                                        <button mat-icon-button>
-                                                <mat-icon matSuffix>view_stream</mat-icon>
-                                        </button>
-                                </div>
+                                <button mat-icon-button (click)="changeView()">
+                                                <mat-icon *ngIf="isGrid">view_stream</mat-icon>
+                                                <mat-icon *ngIf="!isGrid">view_module</mat-icon>
+                                </button>
+                                 </div>
                                 <div>
                                         <button mat-icon-button>
                                                 <mat-icon matSuffix>settings_applications</mat-icon>
                                         </button>
                                 </div>
-                                <div>
+                                <!-- <div>
                                         <button mat-icon-button>
                                                 <mat-icon matSuffix>view_comfy</mat-icon>
                                         </button>
-                                </div>
+                                </div> -->
                         </div>
+
                         <div class="profile-button">
+                                <button mat-button [matMenuTriggerFor]="beforeMenu">
+                                        <img id="keep-icon" class="div-img-myself" src="/assets/images/ajay.jpeg">
+                                </button>
+                    <mat-menu class="matmenuImage" #beforeMenu="matMenu" xPosition="before">
+                     <div><img class="div-img-myself" id="keep-icon" src="/assets/images/ajay.jpeg"></div> 
+                     <div> 
+                      <button mat-stroked-button>Add Account</button> 
+                      <button mat-stroked-button (click)='logout()'>Log Out</button>
+                     </div>
+                    </mat-menu>
+                   </div>
+                        <!-- <div class="profile-button">
                                 <button mat-icon-button>
                                         <img id="keep-icon" mat-card-image src="/assets/images/ajay.jpeg" />
                                 </button>
 
-                        </div>
+                        </div> -->
                 </mat-toolbar>
         </header>
         <div>
@@ -75,7 +89,7 @@
                                          <label>LABELS</label>
                                         </div>
                                         <div fxLayout="column" *ngFor="let label of Label">
-                                                <button class="sidebar-buttons" mat-stroked-button>
+                                                <button class="sidebar-buttons" mat-stroked-button (click)="sendMessage(label)">
                                                    <mat-icon class="maticons"><img src="/assets/icons/label-24px.svg"></mat-icon><span class="sidenavtext">{{ label.labelName }}</span>
                                                 </button> 
                                         </div>

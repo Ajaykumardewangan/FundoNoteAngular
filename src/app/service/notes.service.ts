@@ -78,5 +78,9 @@ export class NotesService {
     return this.http.delete<any>(this.API_URL + url, { headers: new HttpHeaders().set('token', localStorage.getItem('token')) });
   }
 
+  addnoteonlabel(url: any): Observable<any> {
+    return this.http.get<any>(this.API_URL + url, { headers: new HttpHeaders().set('token', localStorage.getItem('token')) });
+  }
+
 }
 

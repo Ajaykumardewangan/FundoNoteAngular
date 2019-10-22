@@ -11,6 +11,7 @@ import { ToolbarComponent } from './component/toolbar/toolbar.component';
 import { ReminderComponent } from './component/reminder/reminder.component';
 import { ArchivednotesComponent } from './component/archivednotes/archivednotes.component';
 import { TrashnotesComponent } from './component/trashnotes/trashnotes.component';
+import { NoteonlabelComponent } from './component/noteonlabel/noteonlabel.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -24,7 +25,8 @@ const routes: Routes = [
      {path: 'reminder', component: ReminderComponent},
      {path: 'notes', component: NotesComponent },
      {path: 'archivednotes', component: ArchivednotesComponent },
-     {path: 'trashnotes', component: TrashnotesComponent }
+     {path: 'trashnotes', component: TrashnotesComponent },
+     {path: 'notesonlabel', component: NoteonlabelComponent }
    ]
 },
   {path: 'create-note', component: CreateNoteComponent },

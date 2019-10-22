@@ -1,8 +1,8 @@
 <div>
         <div>
-                <div class="notes-div">
+                <div class="notes-div" fxLayout = {{direction}}>
                         <mat-card class="note-mat-card" *ngFor="let note of notes"
-                                [ngStyle]="{'background-color':note.color}">
+                                [ngStyle]="{'background-color':note.color}" [ngClass]="direction === 'row' ? 'mat-grid' : 'mat-list'">
                                 <div (click)="openDialog(note)" class="notes">
                                         <div fxLayout="row">
                                         <input class="title-text" type="text" [(ngModel)]="note.noteTitle"

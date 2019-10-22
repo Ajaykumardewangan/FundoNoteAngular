@@ -32,6 +32,8 @@ import { TrashnotesComponent } from './component/trashnotes/trashnotes.component
 import { EditlabeldialogComponent } from './component/editlabeldialog/editlabeldialog.component';
 import { CollaboratordialogboxComponent } from './component/collaboratordialogbox/collaboratordialogbox.component';
 import {MatChipsModule} from '@angular/material/chips';
+import { NoteonlabelComponent } from './component/noteonlabel/noteonlabel.component';
+import { ViewserviceService } from './service/viewservice.service';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,7 @@ import {MatChipsModule} from '@angular/material/chips';
     TrashnotesComponent,
     EditlabeldialogComponent,
     CollaboratordialogboxComponent,
+    NoteonlabelComponent
   ],
   imports: [
     BrowserModule,
@@ -73,7 +76,8 @@ import {MatChipsModule} from '@angular/material/chips';
     OwlNativeDateTimeModule,
     FlexLayoutModule,
     MatListModule,
-    MatChipsModule
+    MatChipsModule,
+
   ],
   exports: [
     MatButtonModule,
@@ -86,7 +90,7 @@ import {MatChipsModule} from '@angular/material/chips';
   ],
   entryComponents: [
     DailogboxComponent, EditlabeldialogComponent, CollaboratordialogboxComponent],
-    providers: [UserService],
+    providers: [UserService, ViewserviceService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

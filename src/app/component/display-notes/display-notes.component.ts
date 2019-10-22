@@ -4,6 +4,7 @@ import { NotesService } from 'src/app/service/notes.service';
 import { LOCAL_STORAGE, WebStorageService } from 'angular-webstorage-service';
 import { MatDialog } from '@angular/material';
 import { LabelsService } from 'src/app/service/labels.service';
+import { ViewserviceService } from 'src/app/service/viewservice.service';
 
 @Component({
   selector: 'app-display-notes',
@@ -15,14 +16,27 @@ export class DisplayNotesComponent implements OnInit {
   @Input() notes: any;
   removable = true;
   selectable = true;
+  direction = 'row';
 
   constructor(
     private noteService: NotesService,
     private labelService: LabelsService,
+    private viewService: ViewserviceService,
     public dialog: MatDialog
-  ) { }
+  ) { this.viewService.currentView.subscribe(
+    response =>
+      this.change(response)
+  );}
 
   ngOnInit() {
+  }
+
+  change(flag: boolean) {
+    if (flag) {
+      this.direction = 'column';
+    } else {
+      this.direction = 'row';
+    }
   }
 
   openDialog(note: any): void {

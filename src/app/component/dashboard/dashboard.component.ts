@@ -7,8 +7,10 @@ import { Observable } from 'rxjs';
 import { LOCAL_STORAGE, WebStorageService } from 'angular-webstorage-service';
 import { LabelsService } from 'src/app/service/labels.service';
 import { NotesService } from 'src/app/service/notes.service';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatSnackBar } from '@angular/material';
 import { EditlabeldialogComponent } from '../editlabeldialog/editlabeldialog.component';
+import { DataService } from 'src/app/service/data.service';
+import { ViewserviceService } from 'src/app/service/viewservice.service';
 
 
 @Component({
@@ -19,6 +21,7 @@ import { EditlabeldialogComponent } from '../editlabeldialog/editlabeldialog.com
 export class DashboardComponent implements OnInit {
 
   showFiller = false;
+  isGrid = true;
   Label: any;
   token: string;
   constructor(
@@ -26,8 +29,12 @@ export class DashboardComponent implements OnInit {
     private labelService: LabelsService,
     private noteService: NotesService,
     private router: Router,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private dataService: DataService,
+    private snackBar: MatSnackBar,
+    private viewService: ViewserviceService
     ) {
+
    }
   ngOnInit() {
     this.labelService.getLabels(localStorage.getItem('token')).subscribe( labels => {
@@ -37,6 +44,7 @@ export class DashboardComponent implements OnInit {
   (error) => {
       console.log(error);
   });
+    this.router.navigateByUrl('/dashboard/notes');
    }
 
    notes() {
@@ -59,4 +67,31 @@ export class DashboardComponent implements OnInit {
         height: 'auto',
        });
       }
+
+      sendMessage(label: any): void {
+        console.log('in click');
+        // localStorage.setItem('labelId', label.labelId);
+        // this.router.navigateByUrl('/dashboard/noteonlabel');
+        this.noteService.addnoteonlabel('user/notes/getNotesOnLabel?labelId=' + label.id).subscribe(
+          (response: any) => {
+            console.log('in dashboard');
+            console.log(response);
+            this.dataService.sendMessage(response);
+            this.router.navigateByUrl('/dashboard/notesonlabel');
+          },
+          (error: any) => {
+            console.log(error);
+            this.snackBar.open(error.description, 'error', { duration: 3000 });
+          });
+      }
+
+      logout() {
+        localStorage.clear();
+        this.router.navigateByUrl('/login');
+      }
+
+      changeView() {
+        this.isGrid = !this.isGrid;
+        this.viewService.changeView();
+        }
 }
