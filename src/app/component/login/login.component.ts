@@ -38,14 +38,14 @@ export class LoginComponent implements OnInit {
     this.userService.login(this.loginForm.value).subscribe( data => {
       console.log(data);
       console.log(data.msg);
-      this.snackBar.open('login successfully', 'Ok', {duration: 3000});
+      this.snackBar.open('login successfully', 'Ok', {duration: 2000});
       localStorage.setItem('token', data.msg);
       this.router.navigate(['/dashboard']);
   },
   (error: any) => {
       console.log(error);
       this.loginForm.reset();
-      this.snackBar.open(error.error.description, 'error', {duration: 3000});
+      this.snackBar.open(error.error.description, 'error', {duration: 2000});
   });
   }
 }

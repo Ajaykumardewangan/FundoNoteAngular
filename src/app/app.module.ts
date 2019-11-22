@@ -50,7 +50,7 @@ import { ViewserviceService } from './service/viewservice.service';
     TrashnotesComponent,
     EditlabeldialogComponent,
     CollaboratordialogboxComponent,
-    NoteonlabelComponent
+    NoteonlabelComponent,
   ],
   imports: [
     BrowserModule,
